@@ -1,0 +1,112 @@
+﻿@model OOAD___Projektat___G3.Models.KorisnikKompanija
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+body {
+  background-image: url('https://i.ibb.co/89SYSkV/Background-Rot.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100% 100%;
+}
+</style>
+
+<h1 style="margin-top:2em; font-size:25px">
+    Postanite član e-Pijace!!!</h1>
+
+<h4 style="margin-top:0.5em; font-size:20px">Unesite podatke kompanije</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group"  style="margin-top:0.2em; color:black; font-size:15px">
+                <label asp-for="nazivKompanije" class="control-label">Naziv kompanije</label>
+                <input asp-for="nazivKompanije " class="form-control" />
+                <span asp-validation-for="nazivKompanije" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+                <label asp-for="email" class="control-label"> E-Mail</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+                <label asp-for="password" class="control-label"> Password</label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+                <label asp-for="adresa" class="control-label"> Adresa</label>
+                <input asp-for="adresa" class="form-control" />
+                <span asp-validation-for="adresa" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+                <label asp-for="brojTelefona" class="control-label"> Broj telefona</label>
+                <input asp-for="brojTelefona" class="form-control" />
+                <span asp-validation-for="brojTelefona" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top:1.5em">
+                <input type="submit" value="Nastavi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+p.introduction {
+  font-size:25px;
+  line-height:1.3;
+  display:block;
+}
+
+p.introduction span {
+    position:relative;
+    top:-400px;
+  font-size: 2vw;
+  text-align: right;
+  border: white solid 2px;
+  color: white;
+  background-color:#0023ff99;
+  border-radius: 30px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 10px 100px 10px 10px;
+  font-family: 'Times New Roman', Times, serif;
+}
+</style>
+<p style="text-align: right;" class="introduction"><span>Svijet lahke kupoprodaje je napokon tu!</span></p>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<head>
+<style>
+    .button {
+        position:relative; 
+        right:-750px; 
+        bottom:-50px;
+  border: white solid 2px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 4px 2px;
+  cursor: pointer;
+   border-radius: 25px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 7px 30px 7px 30px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #0023ff99;} /* Orange */
+</style>
+</head>
+
+    <body>
+<button class="button button2" onclick="location.href='@Url.Action("OpeningPage","Start")'">Vrati se na poćetnu stranicu</button>
+</body>

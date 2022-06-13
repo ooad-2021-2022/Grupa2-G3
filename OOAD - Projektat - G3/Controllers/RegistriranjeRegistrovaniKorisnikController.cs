@@ -10,22 +10,22 @@ using OOAD___Projektat___G3.Models;
 
 namespace OOAD___Projektat___G3.Controllers
 {
-    public class StartController : Controller
+    public class RegistriranjeRegistrovaniKorisnikController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public StartController(ApplicationDbContext context)
+        public RegistriranjeRegistrovaniKorisnikController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Start
+        // GET: RegistriranjeRegistrovaniKorisnik
         public async Task<IActionResult> Index()
         {
-            return View(await _context.NeregistrovaniKorisnik.ToListAsync());
+            return View(await _context.RegistrovaniKorisnik.ToListAsync());
         }
 
-        // GET: Start/Details/5
+        // GET: RegistriranjeRegistrovaniKorisnik/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,53 +33,39 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var neregistrovaniKorisnik = await _context.NeregistrovaniKorisnik
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (neregistrovaniKorisnik == null)
+            if (registrovaniKorisnik == null)
             {
                 return NotFound();
             }
 
-            return View(neregistrovaniKorisnik);
+            return View(registrovaniKorisnik);
         }
 
-        // GET: Start/Create
+        // GET: RegistriranjeRegistrovaniKorisnik/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        public IActionResult OpeningPage()
-        {
-            return View();
-        }
-
-        public IActionResult IzborRacunaRegistracija()
-        {
-            return View();
-        }
-        /*protected void PrijavaKorisnika(object sender, EventArgs e)
-        {
-            Response.Redirect("");
-        }*/
-
-        // POST: Start/Create
+        // POST: RegistriranjeRegistrovaniKorisnik/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id")] NeregistrovaniKorisnik neregistrovaniKorisnik)
+        public async Task<IActionResult> Create([Bind("ime,prezime,korisnickoIme,email,password,id")] RegistrovaniKorisnik registrovaniKorisnik)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(neregistrovaniKorisnik);
+                _context.Add(registrovaniKorisnik);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(neregistrovaniKorisnik);
+            return View(registrovaniKorisnik);
         }
 
-        // GET: Start/Edit/5
+        // GET: RegistriranjeRegistrovaniKorisnik/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,22 +73,22 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var neregistrovaniKorisnik = await _context.NeregistrovaniKorisnik.FindAsync(id);
-            if (neregistrovaniKorisnik == null)
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik.FindAsync(id);
+            if (registrovaniKorisnik == null)
             {
                 return NotFound();
             }
-            return View(neregistrovaniKorisnik);
+            return View(registrovaniKorisnik);
         }
 
-        // POST: Start/Edit/5
+        // POST: RegistriranjeRegistrovaniKorisnik/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id")] NeregistrovaniKorisnik neregistrovaniKorisnik)
+        public async Task<IActionResult> Edit(int id, [Bind("ime,prezime,korisnickoIme,email,password,id")] RegistrovaniKorisnik registrovaniKorisnik)
         {
-            if (id != neregistrovaniKorisnik.id)
+            if (id != registrovaniKorisnik.id)
             {
                 return NotFound();
             }
@@ -111,12 +97,12 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 try
                 {
-                    _context.Update(neregistrovaniKorisnik);
+                    _context.Update(registrovaniKorisnik);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NeregistrovaniKorisnikExists(neregistrovaniKorisnik.id))
+                    if (!RegistrovaniKorisnikExists(registrovaniKorisnik.id))
                     {
                         return NotFound();
                     }
@@ -127,10 +113,10 @@ namespace OOAD___Projektat___G3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(neregistrovaniKorisnik);
+            return View(registrovaniKorisnik);
         }
 
-        // GET: Start/Delete/5
+        // GET: RegistriranjeRegistrovaniKorisnik/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,30 +124,30 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var neregistrovaniKorisnik = await _context.NeregistrovaniKorisnik
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (neregistrovaniKorisnik == null)
+            if (registrovaniKorisnik == null)
             {
                 return NotFound();
             }
 
-            return View(neregistrovaniKorisnik);
+            return View(registrovaniKorisnik);
         }
 
-        // POST: Start/Delete/5
+        // POST: RegistriranjeRegistrovaniKorisnik/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var neregistrovaniKorisnik = await _context.NeregistrovaniKorisnik.FindAsync(id);
-            _context.NeregistrovaniKorisnik.Remove(neregistrovaniKorisnik);
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik.FindAsync(id);
+            _context.RegistrovaniKorisnik.Remove(registrovaniKorisnik);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NeregistrovaniKorisnikExists(int id)
+        private bool RegistrovaniKorisnikExists(int id)
         {
-            return _context.NeregistrovaniKorisnik.Any(e => e.id == id);
+            return _context.RegistrovaniKorisnik.Any(e => e.id == id);
         }
     }
 }

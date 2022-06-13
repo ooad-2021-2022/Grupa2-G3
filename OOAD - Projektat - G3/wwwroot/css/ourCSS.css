@@ -1,0 +1,83 @@
+﻿#naslov {
+    z-index: 100;
+    position: absolute;
+    color: black;
+    font-size: 40;
+    font-weight: regular;
+    left: 600px;
+    top: 180px;
+}
+
+#b1 {
+    z-index: 100;
+    position: absolute;
+    color: black;
+    font-size: 20;
+    font-weight: regular;
+    left: 410px;
+    top: 580px;
+    background-color: transparent;
+}
+
+#b2 {
+    z-index: 100;
+    position: absolute;
+    color: black;
+    font-size: 20;
+    font-weight: regular;
+    left: 830px;
+    top: 580px;
+    background-color: transparent;
+}
+
+#logo {
+    top: 20px;
+    z-index: 100;
+    position: absolute;
+    width: 300px;
+    height: auto;
+}
+
+#korisnik {
+    left: 430;
+    top: 350px;
+    z-index: 100;
+    position: absolute;
+    width: 200px;
+    height: auto;
+}
+
+#kopanija {
+    left: 830;
+    top: 350px;
+    z-index: 100;
+    position: absolute;
+    width: 200px;
+    height: auto;
+}
+
+.border-top {
+    border-top: 2px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+
+body {
+    background-image: url('https://i.ibb.co/TkcSN7t/SL-090119-22970-03.jpg?fbclid=IwAR0OYxVDShw-4B_0ouXc3R-risq9JX7VP_4mR4BQsezFNj7y3xg7O1QU2ng');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 60px;
+}

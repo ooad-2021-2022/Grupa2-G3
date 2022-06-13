@@ -10,22 +10,22 @@ using OOAD___Projektat___G3.Models;
 
 namespace OOAD___Projektat___G3.Controllers
 {
-    public class RegistriranjeController : Microsoft.AspNetCore.Mvc.Controller
+    public class RegistriranjeKompanijaController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public RegistriranjeController(ApplicationDbContext context)
+        public RegistriranjeKompanijaController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Registriranje
+        // GET: RegistriranjeKompanija
         public async Task<IActionResult> Index()
         {
-            return View(await _context.User.ToListAsync());
+            return View(await _context.KorisnikKompanija.ToListAsync());
         }
 
-        // GET: Registriranje/Details/5
+        // GET: RegistriranjeKompanija/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var korisnikKompanija = await _context.KorisnikKompanija
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (user == null)
+            if (korisnikKompanija == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(korisnikKompanija);
         }
 
-        // GET: Registriranje/Create
+        // GET: RegistriranjeKompanija/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Registriranje/Create
+        // POST: RegistriranjeKompanija/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id")] User user)
+        public async Task<IActionResult> Create([Bind("nazivKompanije,email,password,adresa,brojTelefona,id")] KorisnikKompanija korisnikKompanija)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(korisnikKompanija);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(korisnikKompanija);
         }
 
-        // GET: Registriranje/Edit/5
+        // GET: RegistriranjeKompanija/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            var korisnikKompanija = await _context.KorisnikKompanija.FindAsync(id);
+            if (korisnikKompanija == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(korisnikKompanija);
         }
 
-        // POST: Registriranje/Edit/5
+        // POST: RegistriranjeKompanija/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("nazivKompanije,email,password,adresa,brojTelefona,id")] KorisnikKompanija korisnikKompanija)
         {
-            if (id != user.id)
+            if (id != korisnikKompanija.id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(korisnikKompanija);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.id))
+                    if (!KorisnikKompanijaExists(korisnikKompanija.id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace OOAD___Projektat___G3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(korisnikKompanija);
         }
 
-        // GET: Registriranje/Delete/5
+        // GET: RegistriranjeKompanija/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var user = await _context.User
+            var korisnikKompanija = await _context.KorisnikKompanija
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (user == null)
+            if (korisnikKompanija == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(korisnikKompanija);
         }
 
-        // POST: Registriranje/Delete/5
+        // POST: RegistriranjeKompanija/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
+            var korisnikKompanija = await _context.KorisnikKompanija.FindAsync(id);
+            _context.KorisnikKompanija.Remove(korisnikKompanija);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool KorisnikKompanijaExists(int id)
         {
-            return _context.User.Any(e => e.id == id);
+            return _context.KorisnikKompanija.Any(e => e.id == id);
         }
     }
 }
