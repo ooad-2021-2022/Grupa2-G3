@@ -2,6 +2,10 @@
 @{
     ViewData["Title"] = "OpeningPage";
 }
+
+@{
+    Layout = null;
+}
 <style>
 body {
   background-image: url('https://i.ibb.co/6JHxh61/Start-Photo-Cut.jpg');
@@ -19,15 +23,18 @@ p.introduction {
 }
 
 p.introduction span {
-  font-size: 6vw;
+    position:relative;
+    top:57px;
+  font-size: 7vw;
   text-align: right;
   color: black;
-  background-color: #f48024;
+  background-color:#ff9700ab;
   color: black;
-  border-radius: 25px;
+  border-radius: 30px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding: 0 5px 0 5px;
+  padding: 10px 100px 10px 10px;
+  font-family: 'Times New Roman', Times, serif;
 }
 </style>
 
@@ -45,10 +52,10 @@ glavni {
 <style>
     .button {
         position:relative; 
-        right:-770px; 
-        bottom:-230px;
+        right:-900px; 
+        bottom:-370px;
   border: none;
-  color: white;
+  color: black;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -59,13 +66,69 @@ glavni {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   padding: 10px 30px 10px 30px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .button1 {background-color: #4CAF50;} /* Green */
-.button2 {background-color: #0023ff99;} /* Blue */
+.button2 {background-color: #ff9700ab;} /* Orange */
+</style>
+</head>
+
+<head>
+<style>
+    .btn1 {
+        position:relative; 
+        right:-300px;
+        bottom:-60px;
+  border: 2px solid black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vw;
+  margin: 4px 2px;
+  cursor: pointer;
+   border-radius: 25px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 10px 40px 10px 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+       
+.button1 {background-color: #0023ff99;} /* Green */
+</style>
+</head>
+
+<head>
+<style>
+    .btn2 {
+   position:relative; 
+   right:-102px;
+        bottom:-150px;
+  border: 2px solid black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vw;
+  margin: 4px 2px;
+  cursor: pointer;
+   border-radius: 25px;
+  box-decoration-break: clone;
+  padding: 10px 40px 10px 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.ttt { background-color: #0023ff99;} /* Blue */
 </style>
 </head>
 
 <body>
-<button class="button button2">Nastavi dalje bez prijave</button>
+<button class="button button2" onclick="location.href='@Url.Action("Pretraga","Search")'">Nastavi dalje bez prijave</button>
+</body>
+<body>
+<button class="btn1 button1" type="button" onclick="location.href='@Url.Action("Create","Logiranje")'"> Prijava </button>
+</body>
+
+<body>
+<button class="btn2 ttt" onclick="location.href='@Url.Action("Create","Registriranje")'">Registracija </button>
 </body>

@@ -49,11 +49,14 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-
         public IActionResult OpeningPage()
         {
             return View();
         }
+        /*protected void PrijavaKorisnika(object sender, EventArgs e)
+        {
+            Response.Redirect("");
+        }*/
 
         // POST: Start/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
