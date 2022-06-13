@@ -2,22 +2,24 @@
     z-index: 100;
     position: absolute;
     color: black;
+    height: auto;
     font-weight: bold;
     font-size: 40;
-    left: 700px;
-    top: 300px;
-    
+    width: auto;
+    left: 35vw;
+    top: 15vw;
 }
 
 #b1 {
-    
     z-index: 100;
     position: absolute;
     font-weight: bold;
+    width: 15vw;
+    height: auto;
     color: black;
     font-size: 20;
-    left: 600px;
-    top: 600px;
+    left: 31.250vw;
+    top: 33vw;
     background-color: transparent;
 }
 
@@ -25,42 +27,40 @@
     font-weight: bold;
     z-index: 100;
     position: absolute;
+    height: auto;
     color: black;
     font-size: 20;
-    
-    left: 1000px;
-    top: 600px;
+    width: 12vw;
+    left: 52.083vw;
+    top: 33vw;
     background-color: transparent;
 }
 
 #logo {
-    
     z-index: 100;
     position: absolute;
-    width: 300px;
+    width: 12vw;
     height: auto;
-    top: 20px;
-    left: 20px;
+    top: 1.042vw;
+    left: 1.042vw;
 }
 
 #korisnik {
-    
     z-index: 100;
     position: absolute;
-    width: 200px;
+    width: 12vw;
     height: auto;
-    left: 600px;
-    top: 400px;
+    left: 33vw;
+    top: 20.833vw;
 }
 
 #kompanija {
-    
     z-index: 100;
     position: absolute;
-    width: 180px;
+    width: 12vw;
     height: auto;
-    left: 1000px;
-    top: 400px;
+    left: 52.083vw;
+    top: 20vw;
 }
 
 
@@ -69,5 +69,7 @@ body {
     background-image: url('https://i.ibb.co/TkcSN7t/SL-090119-22970-03.jpg?fbclid=IwAR0OYxVDShw-4B_0ouXc3R-risq9JX7VP_4mR4BQsezFNj7y3xg7O1QU2ng');
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 60px;
+    margin-bottom: 3.125vw;
 }
+
+
