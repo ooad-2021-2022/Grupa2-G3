@@ -18,7 +18,10 @@ namespace OOAD___Projektat___G3.Controllers
         {
             _context = context;
         }
-
+        public IActionResult Prijava()
+        {
+            return View();
+        }
         // GET: Logiranje
         public async Task<IActionResult> Index()
         {
