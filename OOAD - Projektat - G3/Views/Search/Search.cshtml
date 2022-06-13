@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+}
+
+<style>
+body {
+  background-image: url('https://i.ibb.co/TkcSN7t/SL-090119-22970-03.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+
+<form action="/action_page.php" data-inline="true">
+  <input type="text" id="fsearch" name="fname" value="Unesite tekst..." data-inline="true" style="position:absolute; 
+top:2vw; right:16.5vw; font-size:2vw; color:black; width:20vw;  border-radius: 1.953vw;
+background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;"><br>
+  <input type="submit" value="Pretraži"  data-inline="true" style="position:absolute; 
+top:2vw; right:5vw; font-size:2vw; color:black; width:10vw;  border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
+</form>
+
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+    alt="Smiley face" width="150" style="vertical-align:top;margin:0.8vw -3.125vw" />
+
+
+<form action="" class="form-horizontal" style="margin-top=10vw;" data-inline="true">
+  <label for="donjaGR" data-inline="true">Donja granica: </label><br>
+  <input type="number" id="donjaGR" name="donjaGR" value="0" data-inline="true"><br>
+</form>
+
+ <label for="cars" data-inline="true">Choose a car: </label>
+<select name="cars" id="cars" data-inline="true">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>

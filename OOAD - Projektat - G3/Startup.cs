@@ -63,7 +63,7 @@ namespace OOAD___Projektat___G3
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Start}/{action=OpeningPage}/{id?}");
+                    pattern: "{controller=Start}/{action=Start}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

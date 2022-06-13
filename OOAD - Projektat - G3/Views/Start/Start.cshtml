@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "OpeningPage";
+}
+
+@{
+    Layout = null;
+}
+<style>
+body {
+  background-image: url('https://i.ibb.co/6JHxh61/Start-Photo-Cut.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100% 100%;
+}
+</style>
+
+<style>
+p.introduction {
+  font-size:1.953vw;
+  line-height:1.3;
+  display:block;
+}
+
+p.introduction span {
+    position:relative;
+    top:50.547vw;
+  font-size: 7vw;
+  text-align: right;
+  color: black;
+  background-color:#ff9700ab;
+  color: black;
+  border-radius: 2.344vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.781vw 7.813vw 0.781vw 0.781vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+</style>
+
+<style>
+glavni {
+    font-size: 5vw;
+    text-align: right;
+    color: black
+}
+</style> 
+
+<p style="text-align: right;" class="introduction"><span>Dobro došli na E-Pijacu</span></p>
+
+<head>
+<style>
+    .button {
+        position:relative; 
+        right:-70.313vw; 
+        bottom:-35.469vw;
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.781vw 2.344vw 0.781vw 2.344vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #ff9700ab;} /* Orange */
+</style>
+</head>
+
+<head>
+<style>
+    .btn1 {
+        position:relative; 
+        right:-23.438vw;
+        bottom:-4.688vw;
+  border: 0.156vw solid black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.781vw 3.125vw 0.781vw 3.125vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+       
+.button1 {background-color: #0023ff99;} /* Green */
+</style>
+</head>
+
+<head>
+<style>
+    .btn2 {
+   position:relative; 
+   right:-100.156vw;
+        bottom:-13.906vw;
+  border: 0.156vw solid black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  box-decoration-break: clone;
+  padding: 0.781vw 3.125vw 0.781vw 3.125vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+.ttt { background-color: #0023ff99;} /* Blue */
+</style>
+</head>
+
+<body>
+<button class="button button2" onclick="location.href='@Url.Action("Pretraga","Search")'">Nastavi dalje bez prijave</button>
+</body>
+<body>
+<button class="btn1 button1" type="button" onclick="location.href='@Url.Action("Create","Logiranje")'"> Prijava </button>
+</body>
+
+<body>
+<button class="btn2 ttt" onclick="location.href='@Url.Action("Create","Registriranje")'">Registracija </button>
+</body>

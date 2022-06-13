@@ -12,41 +12,41 @@ body {
 }
 </style>
 
-<h1 style="margin-top:2em; font-size:25px">
+<h1 style="margin-top:2em; font-size:1.953vw">
     Postanite član e-Pijace!!!</h1>
 
-<h4 style="margin-top:0.5em; font-size:20px">Unesite podatke kompanije</h4>
+<h4 style="margin-top:0.625vw; font-size:20px">Unesite podatke kompanije</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group"  style="margin-top:0.2em; color:black; font-size:15px">
+           <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
                 <label asp-for="nazivKompanije" class="control-label">Naziv kompanije</label>
                 <input asp-for="nazivKompanije " class="form-control" />
                 <span asp-validation-for="nazivKompanije" class="text-danger"></span>
             </div>
-            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+            <div class="form-group" style="margin-top:0.242vw;color:black; font-size:1.172vw">
                 <label asp-for="email" class="control-label"> E-Mail</label>
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
-            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+            <div class="form-group" style="margin-top:0.242vw;color:black; font-size:1.172vw">
                 <label asp-for="password" class="control-label"> Password</label>
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
-            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+            <div class="form-group" style="margin-top:0.242vw;color:black; font-size:1.172vw">
                 <label asp-for="adresa" class="control-label"> Adresa</label>
                 <input asp-for="adresa" class="form-control" />
                 <span asp-validation-for="adresa" class="text-danger"></span>
             </div>
-            <div class="form-group" style="margin-top:0.2em;color:black; font-size:15px">
+            <div class="form-group" style="margin-top:0.242vw;color:black; font-size:1.172vw">
                 <label asp-for="brojTelefona" class="control-label"> Broj telefona</label>
                 <input asp-for="brojTelefona" class="form-control" />
                 <span asp-validation-for="brojTelefona" class="text-danger"></span>
             </div>
-            <div class="form-group" style="margin-top:1.5em">
+             <div class="form-group" style="margin-top:1.875vw">
                 <input type="submit" value="Nastavi" class="btn btn-primary" />
             </div>
         </form>
@@ -55,23 +55,23 @@ body {
 
 <style>
 p.introduction {
-  font-size:25px;
+  font-size:1.953vw;
   line-height:1.3;
   display:block;
 }
 
 p.introduction span {
     position:relative;
-    top:-400px;
+    top:-31.250vw;
   font-size: 2vw;
   text-align: right;
-  border: white solid 2px;
+  border: white solid 0.156vw;
   color: white;
   background-color:#0023ff99;
-  border-radius: 30px;
+  border-radius: 2.344vw;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding: 10px 100px 10px 10px;
+  padding: 0.781vw 7.813vw 0.781vw 0.781vw;
   font-family: 'Times New Roman', Times, serif;
 }
 </style>
@@ -81,26 +81,28 @@ p.introduction span {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<head>
+<<head>
 <style>
     .button {
         position:relative; 
-        right:-750px; 
-        bottom:-50px;
-  border: white solid 2px;
+        right:-58.594vw; 
+        bottom:-3.906vw;
+  border: white solid  0.156vw;
   color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 2vw;
-  margin: 4px 2px;
+  margin: 0.313vw 0.156vw;
   cursor: pointer;
-   border-radius: 25px;
+   border-radius: 1.953vw;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding: 7px 30px 7px 30px;
+  padding: 0.547vw 2.344vw 0.547vw 2.344vw;
   font-family: 'Times New Roman', Times, serif;
 }
+
+
 
 .button1 {background-color: #4CAF50;} /* Green */
 .button2 {background-color: #0023ff99;} /* Orange */

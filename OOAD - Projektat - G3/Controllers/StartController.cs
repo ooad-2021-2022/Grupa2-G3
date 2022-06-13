@@ -49,7 +49,7 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult OpeningPage()
+        public IActionResult Start()
         {
             return View();
         }

@@ -10,22 +10,22 @@ using OOAD___Projektat___G3.Models;
 
 namespace OOAD___Projektat___G3.Controllers
 {
-    public class RegistriranjeKompanijaController : Controller
+    public class RegistrovaniKorisnikController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public RegistriranjeKompanijaController(ApplicationDbContext context)
+        public RegistrovaniKorisnikController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: RegistriranjeKompanija
+        // GET: RegistriranjeRegistrovaniKorisnik
         public async Task<IActionResult> Index()
         {
-            return View(await _context.KorisnikKompanija.ToListAsync());
+            return View(await _context.RegistrovaniKorisnik.ToListAsync());
         }
 
-        // GET: RegistriranjeKompanija/Details/5
+        // GET: RegistriranjeRegistrovaniKorisnik/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,44 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var korisnikKompanija = await _context.KorisnikKompanija
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (korisnikKompanija == null)
+            if (registrovaniKorisnik == null)
             {
                 return NotFound();
             }
 
-            return View(korisnikKompanija);
+            return View(registrovaniKorisnik);
         }
 
-        // GET: RegistriranjeKompanija/Create
+        // GET: RegistriranjeRegistrovaniKorisnik/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: RegistriranjeKompanija/Create
+        // POST: RegistriranjeRegistrovaniKorisnik/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("nazivKompanije,email,password,adresa,brojTelefona,id")] KorisnikKompanija korisnikKompanija)
+        public async Task<IActionResult> Create([Bind("ime,prezime,korisnickoIme,email,password,id")] RegistrovaniKorisnik registrovaniKorisnik)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(korisnikKompanija);
+                _context.Add(registrovaniKorisnik);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(korisnikKompanija);
+            return View(registrovaniKorisnik);
         }
 
-        // GET: RegistriranjeKompanija/Edit/5
+        public IActionResult Successfull()
+        {
+            return View();
+        }
+
+        // GET: RegistriranjeRegistrovaniKorisnik/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +78,22 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var korisnikKompanija = await _context.KorisnikKompanija.FindAsync(id);
-            if (korisnikKompanija == null)
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik.FindAsync(id);
+            if (registrovaniKorisnik == null)
             {
                 return NotFound();
             }
-            return View(korisnikKompanija);
+            return View(registrovaniKorisnik);
         }
 
-        // POST: RegistriranjeKompanija/Edit/5
+        // POST: RegistriranjeRegistrovaniKorisnik/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("nazivKompanije,email,password,adresa,brojTelefona,id")] KorisnikKompanija korisnikKompanija)
+        public async Task<IActionResult> Edit(int id, [Bind("ime,prezime,korisnickoIme,email,password,id")] RegistrovaniKorisnik registrovaniKorisnik)
         {
-            if (id != korisnikKompanija.id)
+            if (id != registrovaniKorisnik.id)
             {
                 return NotFound();
             }
@@ -97,12 +102,12 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 try
                 {
-                    _context.Update(korisnikKompanija);
+                    _context.Update(registrovaniKorisnik);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!KorisnikKompanijaExists(korisnikKompanija.id))
+                    if (!RegistrovaniKorisnikExists(registrovaniKorisnik.id))
                     {
                         return NotFound();
                     }
@@ -113,10 +118,10 @@ namespace OOAD___Projektat___G3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(korisnikKompanija);
+            return View(registrovaniKorisnik);
         }
 
-        // GET: RegistriranjeKompanija/Delete/5
+        // GET: RegistriranjeRegistrovaniKorisnik/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +129,30 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var korisnikKompanija = await _context.KorisnikKompanija
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik
                 .FirstOrDefaultAsync(m => m.id == id);
-            if (korisnikKompanija == null)
+            if (registrovaniKorisnik == null)
             {
                 return NotFound();
             }
 
-            return View(korisnikKompanija);
+            return View(registrovaniKorisnik);
         }
 
-        // POST: RegistriranjeKompanija/Delete/5
+        // POST: RegistriranjeRegistrovaniKorisnik/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var korisnikKompanija = await _context.KorisnikKompanija.FindAsync(id);
-            _context.KorisnikKompanija.Remove(korisnikKompanija);
+            var registrovaniKorisnik = await _context.RegistrovaniKorisnik.FindAsync(id);
+            _context.RegistrovaniKorisnik.Remove(registrovaniKorisnik);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool KorisnikKompanijaExists(int id)
+        private bool RegistrovaniKorisnikExists(int id)
         {
-            return _context.KorisnikKompanija.Any(e => e.id == id);
+            return _context.RegistrovaniKorisnik.Any(e => e.id == id);
         }
     }
 }

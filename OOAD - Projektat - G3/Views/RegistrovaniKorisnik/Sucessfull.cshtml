@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "UspjesnoKreiranjeRacuna";
+}
+
+<style>
+body {
+  background-image: url('https://i.ibb.co/nDmyBVd/19010.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+}
+</style>
+
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+    alt="Smiley face" width="150" style="vertical-align:top;margin:1.563vw -3.125vw" />
+
+<h1 style="text-align:center; font-family:'Times New Roman', Times, serif; font-size:3vw; margin: 5.469vw 0px 3.906vw 0px">
+    Uspješno ste napravili korisnički račun!
+</h1>
+
+<style>
+p.introduction {
+  font-size:1.953vw;
+}
+
+p.introduction span {
+  text-align: center;
+  border: white solid 0.156vw;
+  color: black;
+  width: 100%;
+  background-color:ghostwhite;
+  border-radius: 2.344vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0px 31.250vw 0px 31.250vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+</style>
+<p style="text-align: center;" class="introduction"><span>Dobro došli na e-Pijacu!</span></p>
+
+
+<head>
+<style>
+    .button {
+  border: white solid 0.156vw;
+  margin: 3.125vw 13.906vw 0px 13.906vw;
+  color: white;
+  text-align: center;
+  align-self: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2.2vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.547vw 0.781vw 0.547vw 0.781vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #0023ff99;} /* Orange */
+</style>
+</head>
+
+<body>
+<button class="button button2" data-inline="true" onclick="location.href='@Url.Action("OpeningPage","Start")'">Vrati se na poćetnu stranicu</button>
+</body>
+
+  <body>
+<button class="button button2" data-inline="true" style = "align-self:end; padding: 0.547vw 6.250vw 0.547vw 6.250vw;  margin: 0px 3.906vw 0px 0px;" onclick="location.href='@Url.Action("OpeningPage","Start")'">Nastavi dalje</button>
+</body>
