@@ -80,7 +80,7 @@ namespace OOAD___Projektat___G3.Controllers
                 }
             }
 
-   
+            List<ArtikalKategorija> kategorijaIzBaze = _context.ArtikalKategorija.ToList();
 
             return View(listaArtikala);
         }

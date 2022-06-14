@@ -20,12 +20,6 @@ namespace OOAD___Projektat___G3.Controllers
         }
 
         // GET: Artikal
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Artikal.Include(a => a.User);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
         // GET: Artikal/Details/5
        
         public async Task<IActionResult> Details(int? id)
@@ -44,7 +38,8 @@ namespace OOAD___Projektat___G3.Controllers
             }
 
             return View(artikal);
-        }
+        } 
+        
 
 
         // GET: Artikal/Create

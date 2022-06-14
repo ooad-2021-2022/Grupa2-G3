@@ -1,38 +1,45 @@
-﻿@model IEnumerable<OOAD___Projektat___G3.Models.Artikal>
-
+﻿
+@model List<OOAD___Projektat___G3.Models.Artikal>
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+body {
+  background-image: url('https://i.ibb.co/TkcSN7t/SL-090119-22970-03.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+    alt="Smiley face" width="150" style="vertical-align:top;margin:0.8vw -3.125vw" />
+
+
+<h1 >Moji Artikli</h1>
+<style>
+    .table, th, td {
+font-size:1.5vw; 
+color:black; 
+margin-top: 2vw;
+border: 0.2vw solid black;
+}
+</style>
+
+<table class="table" bgcolor="#ffffffb3">
+     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.naziv)
+                @Html.DisplayNameFor(model => model[0].naziv)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.cijena)
+                @Html.DisplayNameFor(model => model[0].cijena)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.kolicina)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.opis)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.slika)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.brojac)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
+                @Html.DisplayNameFor(model => model[0].kolicina)
+            </th>        
             <th></th>
         </tr>
     </thead>
@@ -41,7 +48,7 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.naziv)
-            </td>
+            </td >
             <td>
                 @Html.DisplayFor(modelItem => item.cijena)
             </td>
@@ -49,21 +56,7 @@
                 @Html.DisplayFor(modelItem => item.kolicina)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.opis)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.slika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.brojac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                <a asp-action="prikaziStranicu" asp-route-id="@item.id">Prikaži stranicu</a>
             </td>
         </tr>
 }
