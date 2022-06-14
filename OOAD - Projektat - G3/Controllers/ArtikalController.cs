@@ -21,6 +21,7 @@ namespace OOAD___Projektat___G3.Controllers
 
         // GET: Artikal
         // GET: Artikal/Details/5
+       
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -49,12 +50,18 @@ namespace OOAD___Projektat___G3.Controllers
             return View(await applicationDbContext.Artikal.ToListAsync());
         }
 
+
         // GET: Artikal/Create
         public IActionResult Create(int korisnikID)
         {
             korisnikVlasnik = korisnikID;
             ViewBag.korisnikID = korisnikID;
             ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id");
+            return View();
+        }
+
+        public IActionResult ImageAdd()
+        {
             return View();
         }
 
