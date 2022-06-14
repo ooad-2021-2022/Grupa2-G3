@@ -66,28 +66,37 @@ namespace OOAD___Projektat___G3.Controllers
             return View(lista);
         }
 
-        public IActionResult Pretraga(string rijec, double donjaGR, double gornjaGR, Kategorija kategorije)
+        public IActionResult Pretraga(string unos = "", double donjaGranica = 0, double gornjaGranica = 0, ArtikalKategorija kategorija = null)
         {
-           
-            List<Artikal> listaArtikala = _context.Artikal.ToList();
-            for(int i = 0; i < listaArtikala.Count; i++)
+            List<Artikal> listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(unos));
+
+            if (gornjaGranica != 0)
             {
-                Artikal artikal = listaArtikala[i];
-                if (artikal.cijena <= donjaGR || artikal.cijena >= gornjaGR)
+                listaArtikala.RemoveAll((Artikal artikal) => artikal.cijena <= donjaGranica 
+                                                          || artikal.cijena >= gornjaGranica);
+                
+            }    
+
+            if (kategorija != null)
+            {
+                List<ArtikalKategorija> kategorijaIzBaze = _context.ArtikalKategorija.ToList();
+                kategorijaIzBaze.RemoveAll((ArtikalKategorija k) => k.kategorija != kategorija.kategorija);
+
+
+                foreach(ArtikalKategorija k in kategorijaIzBaze)
                 {
-                    listaArtikala.RemoveAt(i);
-                    i--;
+                    listaArtikala.RemoveAll((Artikal artikal) => artikal.id != k.ArtikalID);
                 }
             }
-
-            List<ArtikalKategorija> kategorijaIzBaze = _context.ArtikalKategorija.ToList();
 
             return View(listaArtikala);
         }
 
         public IActionResult Pretraga(string tekst)
         {
-            return null;
+            List<Artikal> listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(unos));
+
+            return View(listaArtikala);
         }
 
 
