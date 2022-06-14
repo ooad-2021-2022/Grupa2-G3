@@ -72,10 +72,30 @@ namespace OOAD___Projektat___G3.Controllers
                 artikal.vlasnikKorisnik = vlasnikKorisnik;
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var korisnikKompanija = _context.KorisnikKompanija.Find(vlasnikKorisnik);
+                if (korisnikKompanija==null || korisnikKompanija.email == null)
+                {
+                    return RedirectToAction("MainUser", "RegistrovaniKorisnik", new { kor = vlasnikKorisnik });
+
+                }
+
+                return RedirectToAction("MainCompany", "KorisnikKompanija", new { kor = vlasnikKorisnik });
             }
             ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
             return View(artikal);
+        }
+
+        public IActionResult BackToMain(int vlasnikKorisnik)
+        {
+            var korisnikKompanija = _context.KorisnikKompanija.Find(vlasnikKorisnik);
+            if (korisnikKompanija == null || korisnikKompanija.email == null)
+            {
+                return RedirectToAction("MainUser", "RegistrovaniKorisnik", new { kor = vlasnikKorisnik });
+
+            }
+
+            return RedirectToAction("MainCompany", "KorisnikKompanija", new { kor = vlasnikKorisnik });
+
         }
 
         // GET: Artikal/Edit/5

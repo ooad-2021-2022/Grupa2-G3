@@ -82,7 +82,7 @@ body {
 </head>
 
     <body>
-<button class="button button2" onclick="location.href='@Url.Action("OpeningPage","Start")'">Vrati se na poćetnu stranicu</button>
+<button class="button button2" onclick="location.href='@Url.Action("BackToMain","Artikal", new{vlasnikKorisnik = @ViewBag.korisnikID})'">Vrati se na glavnu stranicu</button>
 </body>
 
 <img src="~/Images/1200px-SNice.svg.png" style="position:absolute; right:3vw; top:6.5vw; border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">

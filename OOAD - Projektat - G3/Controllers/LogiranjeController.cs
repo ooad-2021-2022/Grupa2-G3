@@ -46,8 +46,8 @@ namespace OOAD___Projektat___G3.Controllers
                 return PrijavaKompanije();
             else
             {
-                string url = string.Format("/KompanijaKorisnik/MainCompany?IDkorisnik={0}", pomocna.id);
-                return Redirect(url);
+                TempData["indeksKompanije"] = pomocna.id;
+                return RedirectToAction("MainCompany", "KorisnikKompanija", new {kor = pomocna.id});
                 return View("~/Views/KorisnikKompanija/MainCompany.cshtml", pomocna); ;
             }
 
@@ -68,9 +68,9 @@ namespace OOAD___Projektat___G3.Controllers
                 return PrijavaKorisnika();
             else
             {
-                string url = string.Format("/RegistrovaniKorisnik/MainUser?IDkorisnik={0}", pomocna.id);
-                return Redirect(url);
-                return View("~/Views/RegistrovaniKorisnik/MainUser.cshtml", pomocna); 
+                TempData["indeksKorisnika"] = pomocna.id;
+                return RedirectToAction("MainUser", "RegistrovaniKorisnik", new {kor = pomocna.id});
+                
             }
         }
     } 
