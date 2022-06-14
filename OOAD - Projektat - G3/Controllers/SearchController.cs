@@ -66,15 +66,22 @@ namespace OOAD___Projektat___G3.Controllers
             return View(lista);
         }
 
-        public IActionResult Pretraga(string unos = "", double donjaGranica = 0, double gornjaGranica = 0, ArtikalKategorija kategorija = null)
+        public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, ArtikalKategorija? kategorija = null)
         {
-            List<Artikal> listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(unos));
-
-            if (gornjaGranica != 0)
+            List<Artikal> listaArtikala;
+            if (rijec != null && !rijec.Contains("Unesite tekst..."))
             {
-                listaArtikala.RemoveAll((Artikal artikal) => artikal.cijena <= donjaGranica 
-                                                          || artikal.cijena >= gornjaGranica);
-                
+                listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(rijec));
+            } 
+            else
+            {
+                listaArtikala = _context.Artikal.ToList();
+            }
+
+            if (gornjaGR != 0)
+            {
+                listaArtikala.RemoveAll((Artikal artikal) => artikal.cijena <= donjaGR 
+                                                          || artikal.cijena >= gornjaGR);
             }    
 
             if (kategorija != null)
@@ -91,14 +98,6 @@ namespace OOAD___Projektat___G3.Controllers
 
             return View(listaArtikala);
         }
-
-        public IActionResult Pretraga(string tekst)
-        {
-            List<Artikal> listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(unos));
-
-            return View(listaArtikala);
-        }
-
 
         // POST: Search/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
