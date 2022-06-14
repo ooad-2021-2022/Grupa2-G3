@@ -34,5 +34,10 @@ namespace OOAD___Projektat___G3.Data
             modelBuilder.Entity<ArtikalKategorija>().ToTable("ArtikalKategorija");
             base.OnModelCreating(modelBuilder);
         }
+
+        internal void Find(RegistrovaniKorisnik registrovaniKorisnik)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

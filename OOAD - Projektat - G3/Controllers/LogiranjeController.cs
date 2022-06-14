@@ -75,6 +75,15 @@ namespace OOAD___Projektat___G3.Controllers
             }
             return View(user);
         }
+        public async Task<IActionResult> Create([Bind("korisnickoIme,password")] RegistrovaniKorisnik registrovaniKorisnik)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Find(registrovaniKorisnik);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(registrovaniKorisnik);
+        }
 
         // GET: Logiranje/Edit/5
         public async Task<IActionResult> Edit(int? id)
