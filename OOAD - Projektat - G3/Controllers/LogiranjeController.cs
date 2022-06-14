@@ -30,6 +30,7 @@ namespace OOAD___Projektat___G3.Controllers
         {
             return View();
         }
+<<<<<<< HEAD
 
         public IActionResult LoginCompanyUser(string email = "", string lozinka = "")
         {
@@ -50,4 +51,110 @@ namespace OOAD___Projektat___G3.Controllers
             }
         }
     } 
+=======
+        
+        
+
+        // POST: Logiranje/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+        public async Task<IActionResult> Create([Bind("korisnickoIme,password")] RegistrovaniKorisnik registrovaniKorisnik)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Find(registrovaniKorisnik);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(registrovaniKorisnik);
+        }
+
+        // GET: Logiranje/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return View(user);
+        }
+
+        // POST: Logiranje/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("id")] User user)
+        {
+            if (id != user.id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UserExists(user.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(user);
+        }
+
+        // GET: Logiranje/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.User
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        // POST: Logiranje/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var user = await _context.User.FindAsync(id);
+            _context.User.Remove(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool UserExists(int id)
+        {
+            return _context.User.Any(e => e.id == id);
+        }
+    }
+>>>>>>> fa9a5448ce84179f90e8103f657c5b1a7eb72473
 }

@@ -49,7 +49,7 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult Successfull()
+        public IActionResult Sucessfull()
         {
             return View();
         }
@@ -65,7 +65,7 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 _context.Add(korisnikKompanija);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Sucessfull));
             }
             return View(korisnikKompanija);
         }
