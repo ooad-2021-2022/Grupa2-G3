@@ -94,7 +94,7 @@ namespace OOAD___Projektat___G3.Controllers
 
         public IActionResult Pretraga(string tekst)
         {
-            List<Artikal> listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(unos));
+            List<Artikal> listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(tekst));
 
             return View(listaArtikala);
         }

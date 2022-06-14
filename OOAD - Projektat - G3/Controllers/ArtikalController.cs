@@ -19,8 +19,11 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
-        // GET: Artikal
-        // GET: Artikal/Details/5
+        public IActionResult MojiArtikli(int? korisnikID = null)
+        {
+            List<Artikal> artikli = _context.Artikal.ToList().FindAll((Artikal a) => a.vlasnikKorisnik== korisnikID);
+            return View(artikli);
+        }
        
         public async Task<IActionResult> Details(int? id)
         {
