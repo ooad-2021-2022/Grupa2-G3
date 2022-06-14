@@ -59,32 +59,37 @@ namespace OOAD___Projektat___G3.Controllers
             ViewBag.korisnikID = idKorisnika;
             ViewData["korisnik"] = new SelectList(_context.User, "id", "id");
 
-            return View();
+            List<Artikal> lista = _context.Artikal.ToList();
+            Predicate<Artikal> match = a => a.vlasnikKorisnik.Equals(idKorisnika);
+            lista.RemoveAll(match);
+            ViewBag.lista = lista; 
+            return View(lista);
         }
 
-        public IActionResult Pretraga(double donjaGranica, double gornjaGranica, Kategorija kategorija)
+        public IActionResult Pretraga(string rijec, double donjaGR, double gornjaGR, Kategorija kategorije)
         {
+           
             List<Artikal> listaArtikala = _context.Artikal.ToList();
             for(int i = 0; i < listaArtikala.Count; i++)
             {
                 Artikal artikal = listaArtikala[i];
-                if (artikal.cijena <= donjaGranica || artikal.cijena >= gornjaGranica)
+                if (artikal.cijena <= donjaGR || artikal.cijena >= gornjaGR)
                 {
                     listaArtikala.RemoveAt(i);
                     i--;
                 }
             }
 
-            List<Kategorija> kategorijaIzBaze = _context.ArtikalKategorija.ToList().Select
+   
 
             return View(listaArtikala);
         }
 
-        public async Task<ActionResult> SearchAsync()
+        public IActionResult Pretraga(string tekst)
         {
-            var applicationDbContext = _context.Artikal.Include(a => a.User);
-            return this.View(await applicationDbContext.ToListAsync());
+            return null;
         }
+
 
         // POST: Search/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.

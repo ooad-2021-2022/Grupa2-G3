@@ -65,7 +65,7 @@ p.introduction span {
 
 
 <body>
-<button class="button button1" style="position:absolute; left:40px" onclick="location.href='@Url.Action("Search","Search")'">Pretraga artikla</button>
+<button class="button button1" style="position:absolute; left:40px" onclick="location.href='@Url.Action("Search","Search", new{idKorisnika = Model.id})'">Pretraga artikla</button>
 </body>
 
 

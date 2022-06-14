@@ -12,30 +12,25 @@ body {
 }
 </style>
 
-<form action="/action_page.php" data-inline="true">
-  <input type="text" id="fsearch" name="fname" value="Unesite tekst..." data-inline="true" style="position:absolute; 
-top:2vw; right:16.5vw; font-size:2vw; color:black; width:20vw;  border-radius: 1.953vw;
-background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;"><br>
-  <input type="submit" value="Pretraži"  data-inline="true" style="position:absolute; 
-top:2vw; right:5vw; font-size:2vw; color:black; width:10vw;  border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
-</form>
 
 <p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
     alt="Smiley face" width="150" style="vertical-align:top;margin:0.8vw -3.125vw" />
 
+<form action="Pretraga" data-inline="true">
+  <input type="text" id="fsearch" name="fname" value="Unesite tekst..." data-inline="true" style="position:absolute; 
+top:2vw; right:16.5vw; font-size:2vw; color:black; width:20vw;  border-radius: 1.953vw;
+background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;"><br>
 
-<form action="Pretraga" class="form-horizontal" style="margin-top:7vw; font-size:1.5vw; font-weight:bold; color:black;" 
-data-inline="true">
-  <label for="donjaGR" data-inline="true" style="padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw;">Donja granica: </label><br>
+  <label for="donjaGR" data-inline="true" style="padding: 0.2vw 0.5vw 0.2vw 0.5vw; font-size:1.5vw; font-weight:bold; color:black; background-color:#ffffffb3; border-radius: 1.953vw;">Donja granica: </label><br>
   <input type="number" id="donjaGR" name="donjaGR" value="0" data-inline="true" style="background-color:#ffffffb3;padding: 0.2vw 0.5vw 0.2vw 0.5vw; margin-top:0.1vw; border-radius: 1.953vw;"><br>
 
-  <label for="gornjaGR" style="margin-top:0.6vw;" data-inline="true" style="padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw;">Donja granica: </label><br>
+  <label for="gornjaGR" style="margin-top:0.6vw;" data-inline="true" style="font-size:1.5vw; font-weight:bold; color:black; padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw;">Gornja granica: </label><br>
   <input type="number" id="gornjaGR" name="gornjaGR" value="0" data-inline="true" style="background-color:#ffffffb3;padding: 0.2vw 0.5vw 0.2vw 0.5vw; 
    margin-top:0.1vw; border-radius: 1.953vw;"><br>
 
-  <label for="kategorije" data-inline="true" style="padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw; 
-margin-top:0.5vw; font-size:1.5vw; font-weight:bold; color:black;">Choose a car: </label>
-<select name="kategorije" id="kategorije" data-inline="true" style="margin-top:0.5vw; font-size:1.5vw; font-weight:bold; color:black;">
+  <label for="kategorije" data-inline="true" style="font-size:1.5vw; font-weight:bold; color:black; padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw; 
+margin-top:0.5vw; font-size:1.5vw; font-weight:bold; color:black; font-size:1.5vw; font-weight:bold; color:black;">Choose a car: </label>
+<select name="kategorije" id="kategorije" data-inline="true" style="margin-top:0.5vw;font-size:1.5vw; font-weight:bold; color:black; font-size:1.5vw; font-weight:bold; color:black;">
   <option value="odjeca">Odjeća</option>
   <option value="vozila">Vozila</option>
   <option value="kompjuteri">Kompjuteri</option>
@@ -48,8 +43,8 @@ margin-top:0.5vw; font-size:1.5vw; font-weight:bold; color:black;">Choose a car:
   <option value="nekretnine">Nekretnine</option>
   <option value="ostalo">Ostalo</option>
 </select>
-<input type="submit" value="Primjeni filtere"  data-inline="true" style="font-size:1.5vw; color:black; width:15vw; 
-border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
+  <input type="submit" value="Pretraži"  data-inline="true" style="position:absolute; 
+top:2vw; right:5vw; font-size:2vw; color:black; width:10vw;  border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
 </form>
 
  
