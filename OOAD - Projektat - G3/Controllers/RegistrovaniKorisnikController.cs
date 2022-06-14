@@ -60,12 +60,12 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 _context.Add(registrovaniKorisnik);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Sucessfull));
             }
             return View(registrovaniKorisnik);
         }
 
-        public IActionResult Successfull()
+        public IActionResult Sucessfull()
         {
             return View();
         }

@@ -30,51 +30,15 @@ namespace OOAD___Projektat___G3.Controllers
         {
             return View();
         }
-        // GET: Logiranje
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.User.ToListAsync());
-        }
-
-        // GET: Logiranje/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // GET: Logiranje/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        
+        
 
         // POST: Logiranje/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
+        
         public async Task<IActionResult> Create([Bind("korisnickoIme,password")] RegistrovaniKorisnik registrovaniKorisnik)
         {
             if (ModelState.IsValid)
