@@ -39,16 +39,7 @@ namespace OOAD___Projektat___G3.Controllers
 
             return View(artikal);
         } 
-        public async Task<IActionResult> Index(int korisnikID)
-        {
-            korisnikVlasnik = korisnikID;
-            ViewBag.korisnikID = korisnikID;
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id");
-
-            
-            
-            return View(await applicationDbContext.Artikal.ToListAsync());
-        }
+        
 
 
         // GET: Artikal/Create
