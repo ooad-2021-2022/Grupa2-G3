@@ -1,4 +1,4 @@
-﻿
+﻿@model OOAD___Projektat___G3.Models.RegistrovaniKorisnik
 @{
     ViewData["Title"] = "Sucessfull";
 }
@@ -69,5 +69,8 @@ p.introduction span {
 </body>
 
   <body>
-<button class="button button2" data-inline="true" style = "align-self:end; padding: 0.547vw 6.250vw 0.547vw 6.250vw;  margin: 0px 3.906vw 0px 0px;" onclick="location.href='@Url.Action("MainUser","GlavnaStrana")'">Nastavi dalje</button>
+<button class="button button2" data-inline="true" style = "align-self:end; 
+padding: 0.547vw 6.250vw 0.547vw 6.250vw;  margin: 0px 3.906vw 0px 0px;" 
+onclick="location.href='@Url.Action("LoginRegisterUser","Logiranje",new {korisnickoIme=Model.korisnickoIme, password = Model.password})'">
+Nastavi dalje</button>
 </body>

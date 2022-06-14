@@ -12,41 +12,41 @@
     <link rel="stylesheet" href="~/css/Prijava.css" />
 </head>
 
-<body>    
-    <div class="container">
-        <main role="main" class="pb-3">
-           <img id="logo" src="https://i.ibb.co/Hh5QK9W/logo.png?fbclid=IwAR0Veh8jAZcaZeuMyyze2wzsvlSGeVcGUHyoTZ0Lgyx7ehRhPt2pU34jPYo"</img>
-           <h1 id="naslov">Prijava</h1>
-           <p id="tekst" >Unesite svoje korisničko ime i lozinku</p>
-    <div class="row" style="margin-top: 20vw">
-    <div class="col-md-4">
-        <form asp-action="PrijavaKorisnika">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-             
-             <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
+<body>
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+   width="150" alt="Smiley face" style="margin-top:2vw; margin-left:2vw"/>
+           
+<h1 style="text-align:center; font-size:3vw; margin-top:4.5vw">
+   Prijava
+</h1>
+
+<h2 style="text-align:center; font-size:2vw; margin-top: 2vw;">
+   Unesite korisničko ime i lozinku
+</h2>
+            
+<form asp-action="LoginRegisterUser" style="width: 40%; margin-left : 30%; margin-top:5vw">
+             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
                 <label asp-for="korisnickoIme" class="control-label"> Korisničko ime:</label>
                 <input asp-for="korisnickoIme" class="form-control" />
                 <span asp-validation-for="korisnickoIme" class="text-danger"></span>
             </div>
-            <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
-                <label asp-for="password" class="control-label"> Password</label>
+              <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
+                <label asp-for="password" class="control-label"> Lozinka</label>
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
-             <div class="form-group" style="margin-top:1.875vw">
+           <div class="form-group" style="margin-top:1.875vw">
                 <input type="submit" value="Login" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-             </main>
-    </div>
+           </div>
+ </form>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     
 </body>
+
 
 
 

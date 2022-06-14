@@ -24,114 +24,50 @@ namespace OOAD___Projektat___G3.Controllers
         }
         public IActionResult PrijavaKorisnika()
         {
-            return View();
+            return View("PrijavaKorisnika");
         }
         public IActionResult PrijavaKompanije()
         {
-            return View();
+            return View("PrijavaKompanije");
         }
-        
-        
 
-        // POST: Logiranje/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        
-        public async Task<IActionResult> Create([Bind("korisnickoIme,password")] RegistrovaniKorisnik registrovaniKorisnik)
+        public IActionResult LoginCompanyUser(string email = "", string password = "")
         {
-            if (ModelState.IsValid)
+            List<KorisnikKompanija> lista = _context.KorisnikKompanija.ToList();
+
+            if(lista == null)
             {
-                _context.Find(registrovaniKorisnik);
-                return RedirectToAction(nameof(Index));
+                return PrijavaKompanije();
             }
-            return View(registrovaniKorisnik);
+
+            KorisnikKompanija pomocna = lista.Find( k =>k.email!=null && k.password!=null && k.email.Equals(email) && k.password.Equals(password));
+
+            if (pomocna == null)
+                return PrijavaKompanije();
+            else
+            {    
+                return View("~/Views/KorisnikKompanija/MainCompany.cshtml", pomocna); ;
+            }
+
         }
 
-        // GET: Logiranje/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult LoginRegisterUser(string korisnickoIme = "", string password = "")
         {
-            if (id == null)
+            List<RegistrovaniKorisnik> lista = _context.RegistrovaniKorisnik.ToList();
+
+            if (lista == null)
             {
-                return NotFound();
+                return PrijavaKorisnika();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            RegistrovaniKorisnik pomocna = lista.Find(k => k.korisnickoIme != null && k.password != null && k.korisnickoIme.Equals(korisnickoIme) && k.password.Equals(password));
+
+            if (pomocna == null)
+                return PrijavaKorisnika();
+            else
             {
-                return NotFound();
+                return View("~/Views/RegistrovaniKorisnik/MainUser.cshtml", pomocna); ;
             }
-            return View(user);
         }
-
-        // POST: Logiranje/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id")] User user)
-        {
-            if (id != user.id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UserExists(user.id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(user);
-        }
-
-        // GET: Logiranje/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return View(user);
-        }
-
-        // POST: Logiranje/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var user = await _context.User.FindAsync(id);
-            _context.User.Remove(user);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool UserExists(int id)
-        {
-            return _context.User.Any(e => e.id == id);
-        }
-    }
+    } 
 }

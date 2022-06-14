@@ -1,7 +1,10 @@
 ﻿
 @{
-    ViewData["Title"] = "MainCompany";
+  
+    ViewData["Title"] = "MainUser";
 }
+
+
 
 <style>
 body {
@@ -62,7 +65,7 @@ p.introduction span {
 
 
 <body>
-<button class="button button1" style="position:absolute; left:40px" onclick="location.href='@Url.Action("OpeningPage","Start")'">Moji artikli</button>
+<button class="button button1" style="position:absolute; left:40px" onclick="location.href='@Url.Action("Search","Search")'">Pretraga artikla</button>
 </body>
 
 
@@ -89,13 +92,17 @@ p.introduction span {
 </head>
 
 <body>
-<button class="btnttt button1" style="position:absolute; left:40px; top:18vw;" onclick="location.href='@Url.Action("OpeningPage","Start")'">Objavi artikal</button>
-</body>
-
-<body>
-<button class="btnttt button1" style="position:absolute; left:40px; top:22.5vw; " onclick="location.href='@Url.Action("OpeningPage","Start")'">Moj račun</button>
+<button class="btnttt button1" style="position:absolute; left:40px; top:18vw; " onclick="location.href='@Url.Action("Index","Artikal")'">Moji artikli</button>
 </body>
 
   <body>
-<button class="btnttt button1" style="position:absolute; left:40px; top:27vw;" onclick="location.href='@Url.Action("OpeningPage","Start")'">Odjava</button>
+<button class="btnttt button1" style="position:absolute; left:40px; top:22.5vw;" onclick="location.href='@Url.Action("Create","Artikal", new{korisnikID = Model.id})'">Objavi artikal</button>
+</body>
+
+<body>
+<button class="btnttt button1" style="position:absolute; left:40px; top:27vw; " onclick="location.href='@Url.Action("Edit","RegistrovaniKorisnik")'">Moj račun</button>
+</body>
+
+  <body>
+<button class="btnttt button1" style="position:absolute; left:40px; top:31.5vw;" onclick="location.href='@Url.Action("OpeningPage","Start")'">Odjava</button>
 </body>

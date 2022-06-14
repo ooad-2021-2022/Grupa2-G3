@@ -13,7 +13,7 @@ namespace OOAD___Projektat___G3.Controllers
     public class ArtikalController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ApplicationDbContext _context;
-
+        public int korisnikVlasnik = -1;
         public ArtikalController(ApplicationDbContext context)
         {
             _context = context;
@@ -51,8 +51,10 @@ namespace OOAD___Projektat___G3.Controllers
         }
 
         // GET: Artikal/Create
-        public IActionResult Create()
+        public IActionResult Create(int korisnikID)
         {
+            korisnikVlasnik = korisnikID;
+            ViewBag.korisnikID = korisnikID;
             ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id");
             return View();
         }
@@ -66,6 +68,8 @@ namespace OOAD___Projektat___G3.Controllers
         {
             if (ModelState.IsValid)
             {
+                artikal.brojac = 0;
+                artikal.vlasnikKorisnik = korisnikVlasnik;
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

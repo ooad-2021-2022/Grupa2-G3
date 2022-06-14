@@ -19,31 +19,7 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
-        // GET: RegistriranjeRegistrovaniKorisnik
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.RegistrovaniKorisnik.ToListAsync());
-        }
-
-        // GET: RegistriranjeRegistrovaniKorisnik/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var registrovaniKorisnik = await _context.RegistrovaniKorisnik
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (registrovaniKorisnik == null)
-            {
-                return NotFound();
-            }
-
-            return View(registrovaniKorisnik);
-        }
-
-        // GET: RegistriranjeRegistrovaniKorisnik/Create
+       
         public IActionResult Create()
         {
             return View();
@@ -60,14 +36,14 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 _context.Add(registrovaniKorisnik);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Sucessfull));
+                return RedirectToAction(nameof(Sucessfull), registrovaniKorisnik);
             }
             return View(registrovaniKorisnik);
         }
 
-        public IActionResult Sucessfull()
+        public IActionResult Sucessfull(RegistrovaniKorisnik korisnik)
         {
-            return View();
+            return View(korisnik);
         }
 
         // GET: RegistriranjeRegistrovaniKorisnik/Edit/5

@@ -19,29 +19,6 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
-        // GET: RegistriranjeKompanija
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.KorisnikKompanija.ToListAsync());
-        }
-
-        // GET: RegistriranjeKompanija/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var korisnikKompanija = await _context.KorisnikKompanija
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (korisnikKompanija == null)
-            {
-                return NotFound();
-            }
-
-            return View(korisnikKompanija);
-        }
 
         // GET: RegistriranjeKompanija/Create
         public IActionResult Create()
@@ -49,11 +26,10 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult Sucessfull()
+        public IActionResult Sucessfull(KorisnikKompanija korisnik)
         {
-            return View();
+            return View(korisnik);
         }
-
         // POST: RegistriranjeKompanija/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,7 +41,7 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 _context.Add(korisnikKompanija);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Sucessfull));
+                return RedirectToAction(nameof(Sucessfull), korisnikKompanija);
             }
             return View(korisnikKompanija);
         }
