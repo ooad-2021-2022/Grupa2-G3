@@ -17,56 +17,43 @@ body {
 
 <style>
 p.introduction {
-  font-size:25px;
+  font-size:1.953vw;
   line-height:1.3;
   display:block;
 }
 
 p.introduction span {
-    position:relative;
-    top:57px;
-  font-size: 7vw;
+  margin-top:10vw;
+  font-size: 4vw;
   text-align: right;
   color: black;
   background-color:#ff9700ab;
-  color: black;
-  border-radius: 30px;
+  border: black solid 0.3vw;
+  border-radius: 2.344vw;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding: 10px 100px 10px 10px;
+  padding: 0.781vw 7.813vw 0.781vw 0.781vw;
   font-family: 'Times New Roman', Times, serif;
 }
 </style>
 
-<style>
-glavni {
-    font-size: 5vw;
-    text-align: right;
-    color: black
-}
-</style> 
 
-<p style="text-align: right;" class="introduction"><span>Dobro došli na E-Pijacu</span></p>
+
+<p style="text-align: right; margin-top: 10vw" class="introduction"><span>Dobro došli na E-Pijacu</span></p>
 
 <head>
 <style>
     .button {
-        position:relative; 
-        right:-900px; 
-        bottom:-370px;
-  border: none;
+  border: black solid 0.2vw;
   color: black;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 2vw;
-  margin: 4px 2px;
+  font-size: 1.5vw;
   cursor: pointer;
-   border-radius: 25px;
+   border-radius: 1.6vw;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  padding: 10px 30px 10px 30px;
-  font-family: 'Times New Roman', Times, serif;
+   padding: 0.5vw 1.2vw 0.5vw 1.2vw;
 }
 
 .button1 {background-color: #4CAF50;} /* Green */
@@ -76,58 +63,27 @@ glavni {
 
 <head>
 <style>
-    .btn1 {
-        position:relative; 
-        right:-300px;
-        bottom:-60px;
-  border: 2px solid black;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 3vw;
-  margin: 4px 2px;
-  cursor: pointer;
-   border-radius: 25px;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  padding: 10px 40px 10px 40px;
-  font-family: 'Times New Roman', Times, serif;
-}
-       
-.button1 {background-color: #0023ff99;} /* Green */
-</style>
-</head>
-
-<head>
-<style>
     .btn2 {
-   position:relative; 
-   right:-102px;
-        bottom:-150px;
-  border: 2px solid black;
+  border: 0.2vw solid black;
   color: white;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 3vw;
-  margin: 4px 2px;
+  font-size: 2vw;
   cursor: pointer;
-   border-radius: 25px;
+  border-radius: 1.6vw;
   box-decoration-break: clone;
-  padding: 10px 40px 10px 40px;
-  font-family: 'Times New Roman', Times, serif;
+  padding: 0.5vw 1.2vw 0.5vw 1.2vw;
 }
 .ttt { background-color: #0023ff99;} /* Blue */
 </style>
 </head>
 
 <body>
-<button class="button button2" onclick="location.href='@Url.Action("Search","Search")'">Nastavi dalje bez prijave</button>
+<button class="btn2 ttt" style="margin-top:4%; width: 20%; margin-left:50%" onclick="location.href='@Url.Action("Prijava","Logiranje")'"> Prijava </button>
 </body>
 <body>
-<button class="btn2 ttt"  onclick="location.href='@Url.Action("Prijava","Logiranje")'"> Prijava </button>
+<button class="btn2 ttt" style="margin-top:1vw; width: 20%; margin-left:50%; " onclick="location.href='@Url.Action("IzborRacunaRegistracija","Start")'">Registracija </button>
 </body>
 <body>
-<button class="btn2 ttt" onclick="location.href='@Url.Action("IzborRacunaRegistracija","Start")'">Registracija </button>
+<button class="button button2" style="width: 20%; margin-left:75%; margin-top:10%;" onclick="location.href='@Url.Action("Search","Search")'">Nastavi dalje bez prijave</button>
 </body>

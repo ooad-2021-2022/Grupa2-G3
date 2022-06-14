@@ -24,11 +24,11 @@ namespace OOAD___Projektat___G3.Controllers
         }
         public IActionResult PrijavaKorisnika()
         {
-            return View();
+            return View("PrijavaKorisnika");
         }
         public IActionResult PrijavaKompanije()
         {
-            return View();
+            return View("PrijavaKompanije");
         }
 
         public IActionResult LoginCompanyUser(string email = "", string password = "")
@@ -37,13 +37,13 @@ namespace OOAD___Projektat___G3.Controllers
 
             if(lista == null)
             {
-                return null;
+                return PrijavaKompanije();
             }
 
             KorisnikKompanija pomocna = lista.Find( k =>k.email!=null && k.password!=null && k.email.Equals(email) && k.password.Equals(password));
 
             if (pomocna == null)
-                return null;
+                return PrijavaKompanije();
             else
             {    
                 return View("~/Views/KorisnikKompanija/MainCompany.cshtml", pomocna); ;
@@ -57,13 +57,13 @@ namespace OOAD___Projektat___G3.Controllers
 
             if (lista == null)
             {
-                return null;
+                return PrijavaKorisnika();
             }
 
             RegistrovaniKorisnik pomocna = lista.Find(k => k.korisnickoIme != null && k.password != null && k.korisnickoIme.Equals(korisnickoIme) && k.password.Equals(password));
 
             if (pomocna == null)
-                return null;
+                return PrijavaKorisnika();
             else
             {
                 return View("~/Views/RegistrovaniKorisnik/MainUser.cshtml", pomocna); ;
