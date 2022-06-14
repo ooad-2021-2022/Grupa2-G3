@@ -68,7 +68,6 @@ namespace OOAD___Projektat___G3.Controllers
 
         public IActionResult Pretraga(string rijec, double donjaGR, double gornjaGR, Kategorija kategorije)
         {
-           
             List<Artikal> listaArtikala = _context.Artikal.ToList();
             for(int i = 0; i < listaArtikala.Count; i++)
             {
@@ -85,11 +84,7 @@ namespace OOAD___Projektat___G3.Controllers
             return View(listaArtikala);
         }
 
-        public IActionResult Pretraga(string tekst)
-        {
-            return null;
-        }
-
+       
 
         // POST: Search/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
