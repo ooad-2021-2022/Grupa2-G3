@@ -13,6 +13,7 @@ namespace OOAD___Projektat___G3.Controllers
     public class SearchController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ApplicationDbContext _context;
+        public List<Artikal> listaPrikazanihArtikala {get; set;}
 
         public SearchController(ApplicationDbContext context)
         {
@@ -52,9 +53,15 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult Search()
+        /*public IActionResult Search()
         {
             return View();
+        }*/
+
+        public async Task<ActionResult> SearchAsync()
+        {
+            var applicationDbContext = _context.Artikal.Include(a => a.User);
+            return this.View(await applicationDbContext.ToListAsync());
         }
 
         // POST: Search/Create
