@@ -1,9 +1,11 @@
-﻿@{
+﻿@model OOAD___Projektat___G3.Models.KorisnikKompanija
+@{
     ViewData["Title"] = "PrijavaKompanije";
 }
 @{
     Layout = null;
 }
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,22 +14,34 @@
     <link rel="stylesheet" href="~/css/Prijava.css" />
 </head>
 
-<body>    
-    <div class="container">
-        <main role="main" class="pb-3">
-           <img id="logo" src="https://i.ibb.co/Hh5QK9W/logo.png?fbclid=IwAR0Veh8jAZcaZeuMyyze2wzsvlSGeVcGUHyoTZ0Lgyx7ehRhPt2pU34jPYo"</img>
-           <h1 id="naslov">Prijava</h1>
-           <p id="tekst" >Unesite e-mail kompanije i lozinku</p>
-           <form id="form"> 
-  <label for="Ime">E-mail</label><br>
-  <input type="text" id="email" name="email"><br>
-  <label for="lname">Lozinka: </label><br>
-  <input type="text" id="lozinka" name="lozinka">
-</form>
-           <button id="b1" onclick="location.href='@Url.Action("LoginCompanyUser", "Logiranje", document.get })'">Login</button>
+<body>
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+   width="150" alt="Smiley face" style="margin-top:2vw; margin-left:2vw"/>
            
-             </main>
-    </div>
+<h1 style="text-align:center; font-size:3vw; margin-top:6.6vw">
+   Prijava
+</h1>
+
+<h2 style="text-align:center; font-size:2vw; margin-top: 2vw;">
+   Unesite e-mail kompanije i lozinku
+</h2>
+            
+<form asp-action="LoginCompanyUser" style="width: 40%; margin-left : 30%; margin-top:5vw">
+             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
+                <label asp-for="email" class="control-label"> E-Mail</label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+              <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
+                <label asp-for="password" class="control-label"> Lozinka</label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+           <div class="form-group" style="margin-top:1.875vw">
+                <input type="submit" value="Login" class="btn btn-primary" />
+           </div>
+ </form>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
