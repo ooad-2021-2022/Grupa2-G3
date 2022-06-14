@@ -19,11 +19,18 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
-        public IActionResult MainCompany(KorisnikKompanija korisnik)
+        public IActionResult MainCompany(int? kor = null)
         {
-            KorisnikKompanija kor = _context.KorisnikKompanija.Find(IDkorisnik);
+            if(kor == null)
+            {
+                int? data = TempData["indeksKompanije"] as int?;
 
-            return View(kor);
+                KorisnikKompanija korisnik = _context.KorisnikKompanija.Find(data);
+                return View(korisnik);
+            }
+
+            KorisnikKompanija koris = _context.KorisnikKompanija.Find(kor);
+            return View(koris);
         }
 
         // GET: RegistriranjeKompanija/Create

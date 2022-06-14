@@ -20,11 +20,18 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
-        public IActionResult MainUser()
+        public IActionResult MainUser(int? kor = null)
         {
-            RegistrovaniKorisnik kor = _context.RegistrovaniKorisnik.Find(IDkorisnik);
+            if (kor == null)
+            {
+                int? data = TempData["indeksKorisnika"] as int?;
 
-            return View(kor);
+                RegistrovaniKorisnik korisnik = _context.RegistrovaniKorisnik.Find(data);
+                return View(korisnik);
+            }
+
+            RegistrovaniKorisnik koris = _context.RegistrovaniKorisnik.Find(kor);
+            return View(koris);
         }
 
         public IActionResult Create()
