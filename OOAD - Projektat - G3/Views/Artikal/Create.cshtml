@@ -16,7 +16,7 @@ body {
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" asp-route-vlasnikKorisnik="@ViewBag.korisnikID">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
              <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
                 <label asp-for="naziv" class="control-label"> Naziv</label>

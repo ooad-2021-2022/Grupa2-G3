@@ -64,12 +64,12 @@ namespace OOAD___Projektat___G3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,naziv,cijena,kolicina,opis,slika,brojac,vlasnikKorisnik")] Artikal artikal)
+        public async Task<IActionResult> Create(int vlasnikKorisnik, [Bind("id,naziv,cijena,kolicina,opis,slika,brojac,vlasnikKorisnik")] Artikal artikal)
         {
             if (ModelState.IsValid)
             {
                 artikal.brojac = 0;
-                artikal.vlasnikKorisnik = korisnikVlasnik;
+                artikal.vlasnikKorisnik = vlasnikKorisnik;
                 _context.Add(artikal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
