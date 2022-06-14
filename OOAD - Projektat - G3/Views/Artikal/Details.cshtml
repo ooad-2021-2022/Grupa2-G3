@@ -17,53 +17,92 @@ body {
 <div>
     <dl class="row" style="font-size:2vw; color:black; margin-top: 1vw; text-align:center">
         <dt class = "col-sm-2" style="margin-top: 1vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:10vw; vertical-align:central;">
-            @Html.DisplayNameFor(model => model.naziv)
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; border-radius: 1.953vw; width:15vw; vertical-align:central;">
+           Naziv:
         </dt>
         <dd class = "col-sm-10" style="margin-top: 1vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw; vertical-align:central;">
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw;   border-radius: 1.953vw; width:20vw; vertical-align:central;">
             @Html.DisplayFor(model => model.naziv)
         </dd>
            </dl>
 </div>
 
 <div>
-    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.2vw; text-align:center">
-        <dt class = "col-sm-2" style="margin-top: 0.2vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; width:10vw; border: black solid 0.2vw; vertical-align:central;">
-            @Html.DisplayNameFor(model => model.cijena)
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.1vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 0.1vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; width:15vw; border: black solid 0.2vw;border-radius: 1.953vw; vertical-align:central;">
+           Cijena:
         </dt>
-        <dd class = "col-sm-10" style="margin-top: 0.2vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw; vertical-align:central;">
+        <dd class = "col-sm-10" style="margin-top: 0.1vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw;border-radius: 1.953vw; width:20vw; vertical-align:central;">
             @Html.DisplayFor(model => model.cijena)
         </dd>
               </dl>
 </div>
 
 <div>
-    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.2vw; text-align:center">
-        <dt class = "col-sm-2" style="margin-top: 0.2vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:10vw; vertical-align:central;">
-            @Html.DisplayNameFor(model => model.kolicina)
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.1vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 0.1vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw;border-radius: 1.953vw; width:15vw; vertical-align:central;">
+            Količina:
         </dt>
-        <dd class = "col-sm-10" style="margin-top: 0.2vw; margin-right:1vw; 
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw; vertical-align:central;">
+        <dd class = "col-sm-10" style="margin-top: 0.1vw; margin-right:1vw; 
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; border-radius: 1.953vw;width:20vw; vertical-align:central;">
             @Html.DisplayFor(model => model.kolicina)
         </dd>
               </dl>
 </div>
 
   <div>
-    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.2vw; text-align:center">
-        <dt class = "col-sm-2" style="margin-top: 0.2vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:10vw; vertical-align:central;">
-            @Html.DisplayNameFor(model => model.opis)
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.1vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 0.1vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; border-radius: 1.953vw; width:15vw; vertical-align:central;">
+           Opis:
         </dt>
-        <dd class = "col-sm-10" style="margin-top: 0.2vw; margin-right:1vw;
-padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw">
-            @Html.DisplayFor(model => model.opis)
-        </dd>
-           <dr>
+        <textarea  rows="6" cols = "7" style="margin-top: 0.2vw; font-size: 1.6vw; margin-right:1vw;
+padding: 0.4vw 1.5vw 0.4vw 1.5vw; background-color:#ffffffb3; border: black solid 0.2vw;">
+             @Html.DisplayFor(model => model.opis)
+        </textarea> 
     </dl>
 </div>
 
+<img src="~/Images/1200px-SNice.svg.png" style="position:absolute; right:3vw; top:6.5vw; 
+border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">
+
+<head>
+<style>
+    .button {
+        position:relative; 
+        right:-51.594vw; 
+        bottom:-3.906vw;
+  border: white solid  0.156vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.547vw 2.344vw 0.547vw 2.344vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #0023ff99;} /* Orange */
+</style>
+</head>
+
+    <body>
+<button class="button button2" style=" position:relative; right:-50.594vw; bottom:-3.906vw;"
+onclick="location.href='@Url.Action("OpeningPage","Start")'">Vrati se na pretragu</button>
+</body>
+
+
+    <body>
+<button class="button button2" onclick="location.href='@Url.Action("OpeningPage","Start")'">Kupi artikal</button>
+</body>
