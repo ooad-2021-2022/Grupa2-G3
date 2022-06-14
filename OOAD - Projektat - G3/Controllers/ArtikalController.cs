@@ -25,6 +25,11 @@ namespace OOAD___Projektat___G3.Controllers
             var applicationDbContext = _context.Artikal.Include(a => a.User);
             return View(await applicationDbContext.ToListAsync());
         }
+        public async Task<IActionResult> ArtikliKorisnika(User user)
+        {
+            var applicationDbContext = _context.Artikal.Include(a => a.User.Equals(user));
+            return View(await applicationDbContext.ToListAsync());
+        }
 
         // GET: Artikal/Details/5
         public async Task<IActionResult> Details(int? id)
