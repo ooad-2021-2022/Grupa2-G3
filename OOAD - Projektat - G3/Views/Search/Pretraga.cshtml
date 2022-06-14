@@ -1,0 +1,95 @@
+﻿@model List<OOAD___Projektat___G3.Models.Artikal>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<style>
+body {
+  background-image: url('https://i.ibb.co/TkcSN7t/SL-090119-22970-03.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+
+
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+    alt="Smiley face" width="150" style="vertical-align:top;margin:0.8vw -3.125vw" />
+
+<form action="Pretraga" data-inline="true">
+  
+    <input type="text" id="rijec" name="rijec" value="Unesite tekst..." data-inline="true" 
+    style="position:absolute; top:2vw; right:16.5vw; font-size:2vw; color:black; width:20vw;  
+border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
+    
+
+  <label for="donjaGR" data-inline="true" style="padding: 0.2vw 0.5vw 0.2vw 0.5vw; font-size:1.7vw; font-weight:bold; color:black;  margin-top:7vw; background-color:#ffffffb3; border-radius: 1.953vw;">Donja granica: </label><br>
+  <input type="number" id="donjaGR" name="donjaGR" value="0" data-inline="true" style=" font-size:1.7vw; background-color:#ffffffb3;padding: 0.2vw 0.5vw 0.2vw 0.5vw; margin-top:0.1vw; border-radius: 1.953vw;"><br>
+
+  <label for="gornjaGR" data-inline="true" style="font-size:1.7vw; font-weight:bold;  margin-top:0.6vw; color:black; padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw;">Gornja granica: </label><br>
+  <input type="number" id="gornjaGR" name="gornjaGR" value="0" data-inline="true" style="font-size:1.7vw; background-color:#ffffffb3;padding: 0.2vw 0.5vw 0.2vw 0.5vw; 
+   margin-top:0.1vw; border-radius: 1.953vw;"><br>
+
+  <label for="kategorije" data-inline="true" style="font-size:1.7vw; font-weight:bold;  margin-top:0.6vw; color:black; padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw; font-size:1.7vw; font-weight:bold; color:black; font-size:1.7vw; font-weight:bold; color:black;">Izaberite kategoriju: </label>
+<select name="kategorije" id="kategorije" data-inline="true" style="margin-top:0.5vw;font-size:1.7vw; font-weight:bold; color:black; font-size:1.7vw; font-weight:bold; color:black;">
+   <option label=" "></option>
+    <option value="odjeca">Odjeća</option>
+  <option value="vozila">Vozila</option>
+  <option value="kompjuteri">Kompjuteri</option>
+  <option value="tehnika">Tehnika</option>
+  <option value="mobilniuredaji">Mobilni uređaji</option>
+  <option value="obuca">Obuca</option>
+  <option value="hrana">Hrana</option>
+  <option value="pice">Piće</option>
+  <option value="bijelatehnika">Bijela tehnika</option>
+  <option value="nekretnine">Nekretnine</option>
+  <option value="ostalo">Ostalo</option>
+</select>
+  <input type="submit" value="Pretraži"  data-inline="true" style="position:absolute; 
+top:2vw; right:5vw; font-size:2vw; color:black; width:10vw;  border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
+</form>
+
+ 
+<style>
+    .table, th, td {
+font-size:1.5vw; 
+color:black; 
+margin-top: 2vw;
+border: 0.2vw solid black;
+}
+</style>
+
+<table class="table" bgcolor="#ffffffb3">
+     <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model[0].naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].cijena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model[0].kolicina)
+            </th>        
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.naziv)
+            </td >
+            <td>
+                @Html.DisplayFor(modelItem => item.cijena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kolicina)
+            </td>
+            <td>
+                <a asp-action="prikaziStranicu" asp-route-id="@item.id">Prikaži stranicu</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
