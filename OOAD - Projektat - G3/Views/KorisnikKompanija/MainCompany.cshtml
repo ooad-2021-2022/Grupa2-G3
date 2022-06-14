@@ -89,13 +89,13 @@ p.introduction span {
 </head>
 
 <body>
-<button class="btnttt button1" style="position:absolute; left:40px; top:18vw;" onclick="location.href='@Url.Action("Create","Artikal")'">Objavi artikal</button>
+<button class="btnttt button1" style="position:absolute; left:40px; top:18vw;" onclick="location.href='@Url.Action("Create","Artikal", new{korisnikID = Model.id})'">Objavi artikal</button>
 </body>
 
 <body>
-<button class="btnttt button1" style="position:absolute; left:40px; top:22.5vw; " onclick="location.href='@Url.Action("OpeningPage","Start")'">Moj račun</button>
+<button class="btnttt button1" style="position:absolute; left:40px; top:22.5vw; " onclick="location.href='@Url.Action("Edit","KorisnikKompanija",new{id = Model.id})'">Moj račun</button>
 </body>
 
   <body>
-<button class="btnttt button1" style="position:absolute; left:40px; top:27vw;" onclick="location.href='@Url.Action("OpeningPage","Start")'">Odjava</button>
+<button class="btnttt button1" style="position:absolute; left:40px; top:27vw;" onclick="location.href='@Url.Action("Start","Start")'">Odjava</button>
 </body>

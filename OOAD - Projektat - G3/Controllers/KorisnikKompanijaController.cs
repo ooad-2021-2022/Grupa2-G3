@@ -13,12 +13,18 @@ namespace OOAD___Projektat___G3.Controllers
     public class KorisnikKompanijaController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        public int IDkorisnik { get; set; }
         public KorisnikKompanijaController(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        public IActionResult MainCompany(KorisnikKompanija korisnik)
+        {
+            KorisnikKompanija kor = _context.KorisnikKompanija.Find(IDkorisnik);
+
+            return View(kor);
+        }
 
         // GET: RegistriranjeKompanija/Create
         public IActionResult Create()
@@ -92,7 +98,7 @@ namespace OOAD___Projektat___G3.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View("~/Views/KorisnikKompanija/MainCompany.cshtml", korisnikKompanija);
             }
             return View(korisnikKompanija);
         }

@@ -13,13 +13,20 @@ namespace OOAD___Projektat___G3.Controllers
     public class RegistrovaniKorisnikController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        public int IDkorisnik { get; set; }
+        
         public RegistrovaniKorisnikController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-       
+        public IActionResult MainUser()
+        {
+            RegistrovaniKorisnik kor = _context.RegistrovaniKorisnik.Find(IDkorisnik);
+
+            return View(kor);
+        }
+
         public IActionResult Create()
         {
             return View();
@@ -92,7 +99,7 @@ namespace OOAD___Projektat___G3.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View("~/Views/RegistrovaniKorisnik/MainUser.cshtml", registrovaniKorisnik);
             }
             return View(registrovaniKorisnik);
         }
