@@ -4,57 +4,66 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
+<style>
+body {
+  background-image: url('https://i.ibb.co/89SYSkV/Background-Rot.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: 100% 100%;
+}
+</style>
+<h4 style="margin-top:2vw; font-size:2vw">Podaci artikla</h4>
+<hr />
 <div>
-    <h4>Artikal</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 1vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 1vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:10vw; vertical-align:central;">
             @Html.DisplayNameFor(model => model.naziv)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-10" style="margin-top: 1vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw; vertical-align:central;">
             @Html.DisplayFor(model => model.naziv)
         </dd>
-        <dt class = "col-sm-2">
+           </dl>
+</div>
+
+<div>
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.2vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 0.2vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; width:10vw; border: black solid 0.2vw; vertical-align:central;">
             @Html.DisplayNameFor(model => model.cijena)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-10" style="margin-top: 0.2vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw; vertical-align:central;">
             @Html.DisplayFor(model => model.cijena)
         </dd>
-        <dt class = "col-sm-2">
+              </dl>
+</div>
+
+<div>
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.2vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 0.2vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:10vw; vertical-align:central;">
             @Html.DisplayNameFor(model => model.kolicina)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-10" style="margin-top: 0.2vw; margin-right:1vw; 
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw; vertical-align:central;">
             @Html.DisplayFor(model => model.kolicina)
         </dd>
-        <dt class = "col-sm-2">
+              </dl>
+</div>
+
+  <div>
+    <dl class="row" style="font-size:2vw; color:black; margin-top: 0.2vw; text-align:center">
+        <dt class = "col-sm-2" style="margin-top: 0.2vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:10vw; vertical-align:central;">
             @Html.DisplayNameFor(model => model.opis)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-10" style="margin-top: 0.2vw; margin-right:1vw;
+padding: 0.2vw 1vw 0.2vw 1vw; background-color:#ffffffb3; height: 4vw; border: black solid 0.2vw; width:20vw">
             @Html.DisplayFor(model => model.opis)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.slika)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.slika)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.brojac)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.brojac)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.id)
-        </dd>
+           <dr>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
