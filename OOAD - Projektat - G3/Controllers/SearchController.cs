@@ -20,6 +20,7 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
+        
         // GET: Search
         public async Task<IActionResult> Index()
         {
