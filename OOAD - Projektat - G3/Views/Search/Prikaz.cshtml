@@ -42,9 +42,7 @@ Podaci artikla
                 <input asp-for="opis" class="form-control" readonly/>
                 <span asp-validation-for="opis" class="text-danger"></span>
             </div>
-            <label asp-for="slika" class="control-label"></label>
-            <input asp-for="slika" class="form-control" style="visibility: hidden"/>
-            <span asp-validation-for="slika" class="text-danger"></span>
+
             <div class="form-group" style="margin-top:2vw">
                 <input type="submit" value="KUPI" class="btn btn-primary" >
             </div>
@@ -56,6 +54,8 @@ Podaci artikla
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+<img src=@Model.slika
+style="position:absolute; right:3vw; top:6.5vw; border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">
 
   
 <style>
