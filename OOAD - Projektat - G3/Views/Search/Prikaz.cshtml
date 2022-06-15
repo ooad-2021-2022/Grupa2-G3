@@ -20,7 +20,7 @@ Podaci artikla
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Kupi" asp-route-id="@Model.id">
+        <form asp-action="Kupi" asp-route-id="@Model.id" asp-route-idKors="@ViewBag.idKorisnika">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
              <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
                 <label asp-for="naziv" class="control-label">Naziv artikla</label>
@@ -52,26 +52,3 @@ Podaci artikla
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<style>
-    .button {
-        position:relative; 
-        right:-58.594vw; 
-        bottom:-3.906vw;
-  border: white solid  0.156vw;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2vw;
-  margin: 0.313vw 0.156vw;
-  cursor: pointer;
-   border-radius: 1.953vw;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  padding: 0.547vw 2.344vw 0.547vw 2.344vw;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-.button1 {background-color: #4CAF50;} /* Green */
-.button2 {background-color: #ffffff00;} /* Orange */
-</style>

@@ -29,5 +29,5 @@ Unesite vaše podatke
         <input class="form-control" /> <br />
         </div>
 </div>
-<button onclick="location.href='@Url.Action("KupiIObrisi","Search", new{id = Model.id})'"  style=" font-size:2vw; color:black; width:15%;  
+<button onclick="location.href='@Url.Action("KupiIObrisi","Search", new{id = Model.id, idKorisnika = @ViewBag.idKorisnika})'"  style=" font-size:2vw; color:black; width:15%;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Potvrdi</button>

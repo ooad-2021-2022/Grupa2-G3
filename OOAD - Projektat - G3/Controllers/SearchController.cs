@@ -16,10 +16,11 @@ namespace OOAD___Projektat___G3.Controllers
         public List<Artikal> listaPrikazanihArtikala {get; set;}
 
 
-        public IActionResult Kupi(int? id = null)
+        public IActionResult Kupi(int? id = null, int? idKors = null)
         {
 
             var artikal = _context.Artikal.Find(id);
+            ViewBag.idKorisnika = idKors;
             return View(artikal);
         }
         
@@ -28,20 +29,21 @@ namespace OOAD___Projektat___G3.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Prikaz(int? id)
+
+        public  IActionResult Prikaz(int? id = null, int? idKors = null)
         {
             if (id == null)
             {
-                return NotFound();
+                return Search(idKors);
             }
 
             var artikal = _context.Artikal.Find(id);
             if (artikal == null)
             {
-                return NotFound();
+                return Search(idKors);
             }
-            
-            
+
+            ViewBag.idKorisnika = idKors;
             return View(artikal);
         }
         // GET: Search
@@ -92,11 +94,16 @@ namespace OOAD___Projektat___G3.Controllers
         }
         
 
-        public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, ArtikalKategorija? kategorija = null, int? id = null)
+        public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, int? kateg = null, int? id = null)
         {
-
+            Kategorija? kategorija = null;
+            if (kateg!=null)
+             kategorija = (Kategorija)kateg;
+            
+            List<Artikal> mojiArtikli = _context.Artikal.ToList();
+            mojiArtikli.RemoveAll(a => a.vlasnikKorisnik.Equals(id));
             List<Artikal> listaArtikala;
-            if (rijec != null && !rijec.Contains("Unesite tekst..."))
+            if (rijec != null && !rijec.Contains("Unesite tekst...") && rijec != "")
             {
                 listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(rijec));
             } 
@@ -109,18 +116,32 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 listaArtikala.RemoveAll((Artikal artikal) => artikal.cijena <= donjaGR 
                                                           || artikal.cijena >= gornjaGR);
-            }    
+            }else if( gornjaGR == 0 && donjaGR != 0)
+            {
+                listaArtikala.RemoveAll((Artikal artikal) => artikal.cijena <= donjaGR);
+            }
 
             if (kategorija != null)
             {
                 List<ArtikalKategorija> kategorijaIzBaze = _context.ArtikalKategorija.ToList();
-                kategorijaIzBaze.RemoveAll((ArtikalKategorija k) => k.kategorija != kategorija.kategorija);
+                kategorijaIzBaze.RemoveAll((ArtikalKategorija k) => k.kategorija != kategorija);
+
+                List<Artikal> pomocna= new List<Artikal>();
 
 
-                foreach(ArtikalKategorija k in kategorijaIzBaze)
+                foreach(Artikal art in listaArtikala)
                 {
-                    listaArtikala.RemoveAll((Artikal artikal) => artikal.id != k.ArtikalID);
+                    List<ArtikalKategorija> kategorijaPomocna = kategorijaIzBaze.FindAll(kat => kat.ArtikalID.Equals(art.id));
+
+                    if (kategorijaPomocna.Count() > 0)
+                    {
+                        pomocna.Add(art);
+                    }
+
                 }
+
+                ViewBag.korisnikID = id;
+                return View(pomocna);
             }
 
             ViewBag.korisnikID = id;
@@ -230,14 +251,13 @@ namespace OOAD___Projektat___G3.Controllers
         }
 
 
-        public IActionResult KupiIObrisi(int? id = null)
+        public IActionResult KupiIObrisi(int? id = null, int? idKorisnika = null)
         {
             var artikal =  _context.Artikal.Find(id);
-            int idKorisnika = artikal.vlasnikKorisnik;
 
             _context.Artikal.Remove(artikal);
             _context.SaveChanges();
-            return RedirectToAction("Search","Search", idKorisnika);
+            return RedirectToAction("Search","Search", new { idKorisnika = idKorisnika } );
         }
 
         private bool ArtikalExists(int id)

@@ -33,20 +33,20 @@ border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; 
   <input type="number" id="gornjaGR" name="gornjaGR" value="0" data-inline="true" style="font-size:1.7vw; background-color:#ffffffb3;padding: 0.2vw 0.5vw 0.2vw 0.5vw; 
    margin-top:0.1vw; border-radius: 1.953vw;"><br>
 
-  <label for="kategorije" data-inline="true" style="font-size:1.7vw; font-weight:bold;  margin-top:0.6vw; color:black; padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw; font-size:1.7vw; font-weight:bold; color:black; font-size:1.7vw; font-weight:bold; color:black;">Izaberite kategoriju: </label>
-<select name="kategorije" id="kategorije" data-inline="true" style="margin-top:0.5vw;font-size:1.7vw; font-weight:bold; color:black; font-size:1.7vw; font-weight:bold; color:black;">
-   <option label=" "></option>
-    <option value="odjeca">Odjeća</option>
-  <option value="vozila">Vozila</option>
-  <option value="kompjuteri">Kompjuteri</option>
-  <option value="tehnika">Tehnika</option>
-  <option value="mobilniuredaji">Mobilni uređaji</option>
-  <option value="obuca">Obuca</option>
-  <option value="hrana">Hrana</option>
-  <option value="pice">Piće</option>
-  <option value="bijelatehnika">Bijela tehnika</option>
-  <option value="nekretnine">Nekretnine</option>
-  <option value="ostalo">Ostalo</option>
+  <label for="kateg" data-inline="true" style="font-size:1.7vw; font-weight:bold;  margin-top:0.6vw; color:black; padding: 0.2vw 0.5vw 0.2vw 0.5vw; background-color:#ffffffb3; border-radius: 1.953vw; font-size:1.7vw; font-weight:bold; color:black; font-size:1.7vw; font-weight:bold; color:black;">Izaberite kategoriju: </label>
+<select name="kateg" id="kateg" data-inline="true" style="margin-top:0.5vw;font-size:1.7vw; font-weight:bold; color:black; font-size:1.7vw; font-weight:bold; color:black;">
+   <option value="null" label=" "></option>
+    <option value="0">Odjeća</option>
+  <option value="1">Vozila</option>
+  <option value="2">Kompjuteri</option>
+  <option value="3">Tehnika</option>
+  <option value="4">Mobilni uređaji</option>
+  <option value="5">Obuca</option>
+  <option value="6">Hrana</option>
+  <option value="7">Piće</option>
+  <option value="8">Bijela tehnika</option>
+  <option value="9">Nekretnine</option>
+  <option value="10">Ostalo</option>
 </select>
   <input type="submit" value="Pretraži"  data-inline="true" style="position:absolute; 
 top:4vw; right:5vw; font-size:2vw; color:black; width:10vw;  border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
@@ -90,7 +90,7 @@ border: 0.2vw solid black;
                 @Html.DisplayFor(modelItem => item.kolicina)
             </td>
             <td>
-                <a asp-action="Prikaz" asp-route-id="@item.id">Prikaži stranicu</a>
+                <a asp-action="Prikaz" asp-route-id="@item.id" asp-route-idKors="@ViewBag.korisnikID">Prikaži stranicu</a>
             </td>
         </tr>
 }
