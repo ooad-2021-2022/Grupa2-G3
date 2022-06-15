@@ -42,7 +42,9 @@ Podaci artikla
                 <input asp-for="opis" class="form-control" />
                 <span asp-validation-for="opis" class="text-danger"></span>
             </div>
-            
+           <label asp-for="slika" class="control-label "style="visibility: hidden"></label>
+            <input asp-for="slika" class="form-control" style="visibility: hidden"/>
+            <span asp-validation-for="slika" class="text-danger"></span>
             <input type="hidden" asp-for="id" />
             <div class="form-group" style="margin-top:1.875vw">
                 <input type="submit" value="SPASI" class="btn btn-primary" />
@@ -51,14 +53,41 @@ Podaci artikla
     </div>
 </div>
 
-<button value="btnCamera" class="btn btn-primary" style="margin-top:1vw" onclick="location.href='@Url.Action("ImageAdd","Artikal", new{idArtikla = Model.id})'"
-> Otvori kameru
-</button>
+<div style="padding: 1rem; border: double black 0.5vw; display: grid; grid-template-columns: 50% 50%">
+ <div id="results" style="border: double black 0.5vw;">Slika će se prikazati ovdje...</div>
+ <div style="margin-left: 30%">
+ <div id="my_camera" style="border: double black 0.5vw;"></div>
+ <script type="text/javascript" src="~/js/webcam.min.js"></script>
+ <script>
+     Webcam.set({
+         width: 320,
+         height: 240,
+         image_format: 'jpeg',
+         jpeg_quality: 90
+     });
+     Webcam.attach( '#my_camera' );
+ </script>
+
+
+ <script>
+ function take_snapshot() {
+     Webcam.snap(function(data_uri){
+         document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+         document.getElementById('slika').value = data_uri;
+     });
+ }
+ </script>
+
+ <input type="button" id="takeshot" class="btn btn-primary" style="margin-top:1.5vw"
+value="Uslikaj" onClick="take_snapshot()">
+ </div>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-
+<img src=@Model.slika
+style="position:absolute; right:3vw; top:6.5vw; border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">
 
 <head>
 <style>
@@ -81,10 +110,13 @@ Podaci artikla
   font-family: 'Times New Roman', Times, serif;
 }
 
+
+
 .button1 {background-color: #4CAF50;} /* Green */
-.button2 {background-color: #ffffff00;} /* Orange */
+.button2 {background-color: #0023ff99;} /* Orange */
 </style>
 </head>
 
     <body>
+<button class="button button2" onclick="location.href='@Url.Action("MojiArtikli","Artikal", new{korisnikID = @Model.vlasnikKorisnik})'">Vrati se na moje artikle</button>
 </body>
