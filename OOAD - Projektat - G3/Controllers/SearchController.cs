@@ -15,10 +15,12 @@ namespace OOAD___Projektat___G3.Controllers
         private readonly ApplicationDbContext _context;
         public List<Artikal> listaPrikazanihArtikala {get; set;}
 
-        public async Task<IActionResult> Kupi(int id)
-        {   
 
-            return View("Kupi");
+        public IActionResult Kupi(int? id = null)
+        {
+
+            var artikal = _context.Artikal.Find(id);
+            return View(artikal);
         }
         
         
@@ -33,12 +35,13 @@ namespace OOAD___Projektat___G3.Controllers
                 return NotFound();
             }
 
-            var artikal = await _context.Artikal.FindAsync(id);
+            var artikal = _context.Artikal.Find(id);
             if (artikal == null)
             {
                 return NotFound();
             }
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
+            
+            
             return View(artikal);
         }
         // GET: Search
@@ -74,7 +77,7 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult Search(int idKorisnika)
+        public IActionResult Search(int? idKorisnika = null)
         {
 
 
@@ -219,9 +222,22 @@ namespace OOAD___Projektat___G3.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var artikal = await _context.Artikal.FindAsync(id);
+            int korId = artikal.vlasnikKorisnik;
+       
             _context.Artikal.Remove(artikal);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Search");
+            return RedirectToAction("Search", korId);
+        }
+
+
+        public IActionResult KupiIObrisi(int? id = null)
+        {
+            var artikal =  _context.Artikal.Find(id);
+            int idKorisnika = artikal.vlasnikKorisnik;
+
+            _context.Artikal.Remove(artikal);
+            _context.SaveChanges();
+            return RedirectToAction("Search","Search", idKorisnika);
         }
 
         private bool ArtikalExists(int id)

@@ -39,6 +39,22 @@ namespace OOAD___Projektat___G3.Controllers
             return View(koris);
         }
 
+        public IActionResult ZatvoriRacun(int? kor)
+        {
+            if(kor == null)
+            {
+                return NotFound();
+            }
+
+            var artikli = _context.Artikal.ToList();
+            var korisnik = _context.RegistrovaniKorisnik.Find(kor);
+            artikli.RemoveAll(a => a.vlasnikKorisnik != kor);
+            _context.Artikal.RemoveRange(artikli);
+            _context.SaveChanges();
+            _context.RegistrovaniKorisnik.Remove(korisnik);
+            _context.SaveChanges();
+            return RedirectToAction("Start","Start");
+        }
         public IActionResult Create()
         {
             return View();

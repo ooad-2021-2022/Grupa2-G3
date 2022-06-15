@@ -84,10 +84,15 @@ Vaši podaci
 }
 
 .button1 {background-color: #4CAF50;} /* Green */
-.button2 {background-color: #ffffff00;} /* Orange */
+.button2 {background-color: #ffffffb3;} /* Orange */
 </style>
 </head>
 
     <body>
 <button class="button button2" onclick="location.href='@Url.Action("MainUser","RegistrovaniKorisnik", new{kor = Model.id})'">Vrati se na glavnu stranicu</button>
 </body>
+
+       <body>
+<button class="button button2" style="right:-13vw;" onclick="location.href='@Url.Action("ZatvoriRacun","RegistrovaniKorisnik", new{kor = Model.id})'">Zatvori račun</button>
+</body>
+
