@@ -15,6 +15,13 @@ namespace OOAD___Projektat___G3.Controllers
         private readonly ApplicationDbContext _context;
         public List<Artikal> listaPrikazanihArtikala {get; set;}
 
+        public async Task<IActionResult> Kupi(int id)
+        {   
+
+            return View("Kupi");
+        }
+        
+        
         public SearchController(ApplicationDbContext context)
         {
             _context = context;
@@ -214,7 +221,7 @@ namespace OOAD___Projektat___G3.Controllers
             var artikal = await _context.Artikal.FindAsync(id);
             _context.Artikal.Remove(artikal);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Search");
         }
 
         private bool ArtikalExists(int id)

@@ -49,7 +49,7 @@ Podaci artikla
         </form>
     </div>
 </div>
-
+<button type="submit" value="KUPI" class="btn btn-primary" onclick="location.href='@Url.Action("Kupi","Search", new{id = Model.id})'"  style="position:absolute; top:30vw; right:70vw; font-size:2vw">Kupi</button>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

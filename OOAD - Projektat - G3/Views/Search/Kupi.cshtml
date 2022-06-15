@@ -1,0 +1,71 @@
+﻿@model OOAD___Projektat___G3.Models.Artikal
+
+@{
+    ViewData["Title"] = "Kupi";
+}
+<style>
+body {
+  background-image: url('https://i.ibb.co/89SYSkV/Background-Rot.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+    alt="Smiley face" width="150" style="vertical-align:top;margin:1.563vw -3.125vw" />
+
+<h4 style="margin: 1.5vw 1.5vw 0vw 0vw ">
+Podaci kupca
+</h4>
+<hr />
+<button onclick="location.href='@Url.Action("DeleteConfirmed","Search", new{id = Model.id})'"  style="position:absolute; top:25vw; right:63.5vw; font-size:2vw; color:black; width:20vw;  
+border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Potvrdi</button>
+<div class="row">
+    <div class="col-md-4">
+        <label class="control-label">Ime</label><br />
+        <input class="form-control /><br />
+        <label class="control-label">Prezime</label><br />
+        <input class="form-control /><br /> 
+        <label class="control-label">Broj kreditne kartice</label><br />
+        <input class="form-control /><br />
+        <label class="control-label">Adresa</label><br />
+        <input class="form-control /><br />
+        </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+<head>
+<style>
+    .button {
+        position:relative; 
+        right:-58.594vw; 
+        bottom:-3.906vw;
+  border: white solid  0.156vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.547vw 2.344vw 0.547vw 2.344vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #ffffff00;} /* Orange */
+</style>
+</head>
+
+    <body>
+</body>
