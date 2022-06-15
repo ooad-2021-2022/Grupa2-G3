@@ -22,6 +22,7 @@ namespace OOAD___Projektat___G3.Controllers
         public IActionResult MojiArtikli(int? korisnikID = null)
         {
             List<Artikal> artikli = _context.Artikal.ToList().FindAll((Artikal a) => a.vlasnikKorisnik== korisnikID);
+            ViewBag.korisnikID = korisnikID;
             return View(artikli);
         }
        
