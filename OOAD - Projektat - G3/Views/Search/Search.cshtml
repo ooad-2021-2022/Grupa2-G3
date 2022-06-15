@@ -18,7 +18,7 @@ body {
 
 <button onclick="location.href='@Url.Action("Start","Start")'"  style="position:absolute; top:4vw; right:63.5vw; font-size:2vw; color:black; width:20vw;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Početna stranica</button>
-<button onclick="location.href='@Url.Action("Start","Start")'"  style="position:absolute; top:4vw; right:42.5vw; font-size:2vw; color:black; width:20vw;  
+<button onclick="location.href='@Url.Action("MainUser","RegistrovaniKorisnik", new{})'"  style="position:absolute; top:4vw; right:42.5vw; font-size:2vw; color:black; width:20vw;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Moj Račun</button>
 <form action="Pretraga" data-inline="true">
   
@@ -26,7 +26,6 @@ border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; 
     style="position:absolute; top:4vw; right:16.5vw; font-size:2vw; color:black; width:20vw;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
     
-
   <label for="donjaGR" data-inline="true" style="padding: 0.2vw 0.5vw 0.2vw 0.5vw; font-size:1.7vw; font-weight:bold; color:black;  margin-top:7vw; background-color:#ffffffb3; border-radius: 1.953vw;">Donja granica: </label><br>
   <input type="number" id="donjaGR" name="donjaGR" value="0" data-inline="true" style=" font-size:1.7vw; background-color:#ffffffb3;padding: 0.2vw 0.5vw 0.2vw 0.5vw; margin-top:0.1vw; border-radius: 1.953vw;"><br>
 
@@ -91,7 +90,7 @@ border: 0.2vw solid black;
                 @Html.DisplayFor(modelItem => item.kolicina)
             </td>
             <td>
-                <a asp-action="prikaziStranicu" asp-route-id="@item.id">Prikaži stranicu</a>
+                <a asp-action="Prikaz" asp-route-id="@item.id">Prikaži stranicu</a>
             </td>
         </tr>
 }

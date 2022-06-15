@@ -122,7 +122,7 @@ namespace OOAD___Projektat___G3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Promjena(int id, [Bind("naziv,cijena,kolicina,opis,slika,brojac")] Artikal artikal)
         {
-            if (id != artikal.id)
+            if (id != artikal.vlasnikKorisnik)
             {
                 return NotFound();
             }
@@ -150,7 +150,7 @@ namespace OOAD___Projektat___G3.Controllers
             ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
             return View(artikal);
         }
-
+       
         // GET: Artikal/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
