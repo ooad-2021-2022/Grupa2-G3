@@ -48,7 +48,7 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 TempData["indeksKompanije"] = pomocna.id;
                 return RedirectToAction("MainCompany", "KorisnikKompanija", new {kor = pomocna.id});
-                return View("~/Views/KorisnikKompanija/MainCompany.cshtml", pomocna); ;
+                
             }
 
         }
