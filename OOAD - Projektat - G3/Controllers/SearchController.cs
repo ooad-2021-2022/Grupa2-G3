@@ -38,6 +38,10 @@ namespace OOAD___Projektat___G3.Controllers
             }
 
             var artikal = _context.Artikal.Find(id);
+            artikal.brojac++;
+
+            _context.Artikal.Update(artikal);
+            _context.SaveChanges();
             if (artikal == null)
             {
                 return Search(idKors);

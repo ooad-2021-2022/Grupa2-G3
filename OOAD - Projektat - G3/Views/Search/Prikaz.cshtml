@@ -52,3 +52,30 @@ Podaci artikla
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+  
+<style>
+    .button {
+  border: black solid  0.256vw;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.547vw 2.344vw 0.547vw 2.344vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #ffffffb3;} /* Orange */
+</style>
+
+
+<button class="button button2" style = "position: absolute; bottom:2vw; right:5vw;"
+    onclick="location.href='@Url.Action("Search","Search", new{idKorisnika = @ViewBag.idKorisnika})'">Vrati se nazad</button>
