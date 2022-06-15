@@ -88,7 +88,7 @@ namespace OOAD___Projektat___G3.Controllers
             return View(artikal);
         }
 
-        public IActionResult BackToMain(int vlasnikKorisnik)
+        public IActionResult BackToMain(int? vlasnikKorisnik = null)
         {
             var korisnikKompanija = _context.KorisnikKompanija.Find(vlasnikKorisnik);
             if (korisnikKompanija == null || korisnikKompanija.email == null)
