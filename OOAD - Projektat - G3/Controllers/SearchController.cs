@@ -95,20 +95,28 @@ namespace OOAD___Projektat___G3.Controllers
             ViewBag.lista = lista; 
             return View(lista);
         }
-        
+
 
         public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, int? kateg = null, int? id = null)
         {
             Kategorija? kategorija = null;
-            if (kateg!=null)
-             kategorija = (Kategorija)kateg;
-            
+            if (kateg != null)
+                kategorija = (Kategorija)kateg;
+
             List<Artikal> mojiArtikli = _context.Artikal.ToList();
-            mojiArtikli.RemoveAll(a => a.vlasnikKorisnik.Equals(id));
+            if (id != -1)
+            {
+                mojiArtikli.RemoveAll(a => a.vlasnikKorisnik.Equals(id));
+            }
+
+            
+
             List<Artikal> listaArtikala;
+
+
             if (rijec != null && !rijec.Contains("Unesite tekst...") && rijec != "")
             {
-                listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.Contains(rijec));
+                listaArtikala = _context.Artikal.ToList().FindAll((Artikal artikal) => artikal.naziv.ToLower().Contains(rijec.ToLower()));
             } 
             else
             {
@@ -122,6 +130,11 @@ namespace OOAD___Projektat___G3.Controllers
             }else if( gornjaGR == 0 && donjaGR != 0)
             {
                 listaArtikala.RemoveAll((Artikal artikal) => artikal.cijena <= donjaGR);
+            }
+
+            if(id != -1)
+            {
+                listaArtikala.RemoveAll(artikalPomocna => mojiArtikli.Contains(artikalPomocna));
             }
 
             if (kategorija != null)

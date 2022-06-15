@@ -18,9 +18,11 @@ body {
 
     <button onclick="location.href='@Url.Action("Start","Start")'"  style="position:absolute; top:4vw; right:63.5vw; font-size:2vw; color:black; width:20vw;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Početna stranica</button>
+
+@if(ViewBag.korisnikID != -1){
 <button onclick="location.href='@Url.Action("MainUser","RegistrovaniKorisnik", new{kor = ViewBag.korisnikID})'"  style="position:absolute; top:4vw; right:42.5vw; font-size:2vw; color:black; width:20vw;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Moj Račun</button>
-
+}
 <form asp-action="Pretraga" asp-route-id="@ViewBag.korisnikID" data-inline="true">
   
     <input onclick="this.select()" type="text" id="rijec" name="rijec" value="Unesite tekst..." data-inline="true" 
