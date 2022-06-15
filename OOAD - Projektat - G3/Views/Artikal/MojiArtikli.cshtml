@@ -62,3 +62,31 @@ border: 0.2vw solid black;
 }
     </tbody>
 </table>
+
+<style>
+    .button {
+  border: black solid  0.256vw;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.7vw;
+  margin: 0.313vw 0.156vw;
+  cursor: pointer;
+   border-radius: 1.953vw;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.547vw 2.344vw 0.547vw 2.344vw;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #ffffff00;} /* Orange */
+</style>
+
+
+
+    <body>
+<button class="button button2" style = "position:absolute; top:2%; right:2%;" onclick="location.href='@Url.Action("MainUser","RegistrovaniKorisnik", new{kor = @ViewBag.korisnikID})'">Vrati se na glavnu stranicu</button>
+
+    </body>
