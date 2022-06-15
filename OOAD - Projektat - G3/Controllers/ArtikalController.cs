@@ -120,7 +120,7 @@ namespace OOAD___Projektat___G3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Promjena(int id, [Bind("naziv,cijena,kolicina,opis,vlasnikKorisnik,slika,user,brojac,id")] Artikal artikal)
+        public async Task<IActionResult> Promjena(int id, [Bind("naziv,cijena,kolicina,opis,slika,brojac")] Artikal artikal)
         {
             if (id != artikal.id)
             {
