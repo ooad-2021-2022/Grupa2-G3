@@ -56,6 +56,8 @@ namespace OOAD___Projektat___G3.Controllers
 
         public IActionResult Search(int idKorisnika)
         {
+
+
             ViewBag.korisnikID = idKorisnika;
             ViewData["korisnik"] = new SelectList(_context.User, "id", "id");
 
