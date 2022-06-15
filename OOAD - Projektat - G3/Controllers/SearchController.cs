@@ -79,7 +79,6 @@ namespace OOAD___Projektat___G3.Controllers
         // GET: Search/Create
         public IActionResult Create()
         {
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id");
             return View();
         }
 
@@ -88,7 +87,7 @@ namespace OOAD___Projektat___G3.Controllers
 
 
             ViewBag.korisnikID = idKorisnika;
-            ViewData["korisnik"] = new SelectList(_context.User, "id", "id");
+            
 
             List<Artikal> lista = _context.Artikal.ToList();
             Predicate<Artikal> match = a => a.vlasnikKorisnik.Equals(idKorisnika);
@@ -165,7 +164,7 @@ namespace OOAD___Projektat___G3.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
+            
             return View(artikal);
         }
 
@@ -218,7 +217,7 @@ namespace OOAD___Projektat___G3.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
+           
             return View(artikal);
         }
 

@@ -61,10 +61,7 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult SaveTakenImage(int idSlika, string slika)
-        {
-            return null;
-        }
+       
         // POST: Artikal/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -87,7 +84,7 @@ namespace OOAD___Projektat___G3.Controllers
 
                 return RedirectToAction("MainCompany", "KorisnikKompanija", new { kor = vlasnikKorisnik });
             }
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
+            
             return View(artikal);
         }
 
@@ -117,7 +114,7 @@ namespace OOAD___Projektat___G3.Controllers
             {
                 return NotFound();
             }
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
+           
             return View(artikal);
         }
 

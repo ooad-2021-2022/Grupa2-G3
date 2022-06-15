@@ -31,6 +31,8 @@ namespace OOAD___Projektat___G3.Controllers
 
         public IActionResult LoginAdministrator(string naziv = "", string password = "")
         {
+            string privremeniNaziv = naziv;
+            string privremeniPassword = password;
             List<Administrator> lista = _context.Administrator.ToList();
 
             if (lista == null)
@@ -38,7 +40,7 @@ namespace OOAD___Projektat___G3.Controllers
                 return PrijavaAdministrator();
             }
 
-            Administrator pomocna = lista.Find(k => k.naziv != null && k.password != null && k.naziv.Equals(naziv) && k.password.Equals(password));
+            Administrator pomocna = lista.Find(k => k.naziv != null && k.password != null && k.naziv.Equals(privremeniNaziv) && k.password.Equals(privremeniPassword));
 
             if (pomocna == null)
                 return PrijavaAdministrator();
@@ -76,11 +78,11 @@ namespace OOAD___Projektat___G3.Controllers
             var artikli = _context.Artikal.ToList();
 
             var korisnik = lista.Find(a => a.id.Equals(id));
-            bool licniJe = true;
+            
 
             if(korisnik == null)
             {
-                licniJe = false;
+                
                 var lista1 = _context.KorisnikKompanija.ToList();
                 var korisnik1 = lista1.Find(a => a.id.Equals(id));
                 
@@ -96,8 +98,7 @@ namespace OOAD___Projektat___G3.Controllers
                 _context.SaveChanges();
                 _context.KorisnikKompanija.Remove(korisnik1);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(KompanijaPregledRacuna), _context.KorisnikKompanija.ToList());
-                return View("KompanijaPregledRacuna", _context.KorisnikKompanija.ToList());
+                return RedirectToAction(nameof(KompanijaPregledRacuna), _context.KorisnikKompanija.ToList());    
             }
 
             artikli.RemoveAll(a => a.vlasnikKorisnik != korisnik.id);
@@ -107,7 +108,7 @@ namespace OOAD___Projektat___G3.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(RegistrovaniPregledRacuna), _context.RegistrovaniKorisnik.ToList());
 
-            return View("RegistrovaniPregledRacuna", _context.RegistrovaniKorisnik.ToList());
+            
         }
 
         // POST: Racun/Delete/5
