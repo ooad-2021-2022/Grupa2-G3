@@ -19,135 +19,40 @@ namespace OOAD___Projektat___G3.Controllers
             _context = context;
         }
 
-        // GET: Administrator
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Administrator.ToListAsync());
-        }
-
-        // GET: Administrator/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var administrator = await _context.Administrator
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (administrator == null)
-            {
-                return NotFound();
-            }
-
-            return View(administrator);
-        }
-
-        // GET: Administrator/Create
-        public IActionResult Create()
+        public IActionResult Login()
         {
             return View();
         }
 
-        // POST: Administrator/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,naziv,password")] Administrator administrator)
+        public IActionResult PrijavaAdministrator()
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(administrator);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(administrator);
+            return View("Login");
         }
 
-        // GET: Administrator/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult LoginAdministrator(string naziv = "", string password = "")
         {
-            if (id == null)
+            List<Administrator> lista = _context.Administrator.ToList();
+
+            if (lista == null)
             {
-                return NotFound();
+                return PrijavaAdministrator();
             }
 
-            var administrator = await _context.Administrator.FindAsync(id);
-            if (administrator == null)
+            Administrator pomocna = lista.Find(k => k.naziv != null && k.password != null && k.naziv.Equals(naziv) && k.password.Equals(password));
+
+            if (pomocna == null)
+                return PrijavaAdministrator();
+            else
             {
-                return NotFound();
+                return RedirectToAction(nameof(MainAdministrator));
+      
             }
-            return View(administrator);
+
         }
 
-        // POST: Administrator/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,naziv,password")] Administrator administrator)
+        public IActionResult MainAdministrator()
         {
-            if (id != administrator.id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(administrator);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AdministratorExists(administrator.id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(administrator);
-        }
-
-        // GET: Administrator/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var administrator = await _context.Administrator
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (administrator == null)
-            {
-                return NotFound();
-            }
-
-            return View(administrator);
-        }
-
-        // POST: Administrator/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var administrator = await _context.Administrator.FindAsync(id);
-            _context.Administrator.Remove(administrator);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool AdministratorExists(int id)
-        {
-            return _context.Administrator.Any(e => e.id == id);
+            return null;
         }
     }
 }
