@@ -1,0 +1,62 @@
+﻿@model IEnumerable<OOAD___Projektat___G3.Models.KorisnikKompanija>
+
+@{
+    ViewData["Title"] = "MainAdministrator";
+}
+<style>
+body {
+  background-image: url('https://i.ibb.co/Z1h18yK/25386.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+<h1 style="font-size:3vw; margin-top:5vw; margin-right:5vw; margin-bottom:10vw">Pregled svih računa kompanija u sistemu</h1>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nazivKompanije)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.adresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.brojTelefona)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nazivKompanije)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.adresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brojTelefona)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

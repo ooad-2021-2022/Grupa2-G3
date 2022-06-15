@@ -52,7 +52,71 @@ namespace OOAD___Projektat___G3.Controllers
 
         public IActionResult MainAdministrator()
         {
-            return null;
+            return View();
+        }
+
+        public IActionResult RegistrovaniPregledRacuna()
+        {
+            return View(_context.RegistrovaniKorisnik.ToList());
+        }
+        public IActionResult KompanijaPregledRacuna()
+        {
+            return View(_context.KorisnikKompanija.ToList());
+        }
+
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var lista = _context.RegistrovaniKorisnik.ToList();
+            var korisnik = lista.Find(a => a.id.Equals(id));
+            bool licniJe = true;
+
+            if(korisnik == null)
+            {
+                licniJe = false;
+                var lista1 = _context.KorisnikKompanija.ToList();
+                var korisnik1 = lista1.Find(a => a.id.Equals(id));
+
+                if (korisnik1 == null)
+                {
+                    return NotFound();
+                }
+
+
+
+                _context.KorisnikKompanija.Remove(korisnik1);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(KompanijaPregledRacuna), _context.KorisnikKompanija.ToList());
+                return View("KompanijaPregledRacuna", _context.KorisnikKompanija.ToList());
+            }
+
+
+            _context.RegistrovaniKorisnik.Remove(korisnik);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(RegistrovaniPregledRacuna), _context.RegistrovaniKorisnik.ToList());
+
+            return View("RegistrovaniPregledRacuna", _context.RegistrovaniKorisnik.ToList());
+        }
+
+        // POST: Racun/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var user = await _context.User.FindAsync(id);
+            _context.User.Remove(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool UserExists(int id)
+        {
+            return _context.User.Any(e => e.id == id);
         }
     }
 }
