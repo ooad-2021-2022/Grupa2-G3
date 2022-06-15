@@ -106,7 +106,7 @@ namespace OOAD___Projektat___G3.Controllers
             List<Artikal> mojiArtikli = _context.Artikal.ToList();
             if (id != -1)
             {
-                mojiArtikli.RemoveAll(a => a.vlasnikKorisnik.Equals(id));
+                mojiArtikli.RemoveAll(a => !a.vlasnikKorisnik.Equals(id));
             }
 
             
