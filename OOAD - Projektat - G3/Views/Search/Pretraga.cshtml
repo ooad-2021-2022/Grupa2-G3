@@ -94,7 +94,7 @@ border: 0.2vw solid black;
                 @Html.DisplayFor(modelItem => item.kolicina)
             </td>
             <td>
-                <a asp-action="Prikaz" asp-route-id="@item.id">Prikaži stranicu</a>
+                <a asp-action="Prikaz" asp-route-id="@item.id" asp-route-idKors="@ViewBag.korisnikID">Prikaži stranicu</a>
             </td>
         </tr>
 }
