@@ -82,7 +82,7 @@ namespace OOAD___Projektat___G3.Controllers
         }
         
 
-        public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, ArtikalKategorija? kategorija = null)
+        public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, ArtikalKategorija? kategorija = null, int? id = null)
         {
 
             List<Artikal> listaArtikala;
@@ -113,6 +113,7 @@ namespace OOAD___Projektat___G3.Controllers
                 }
             }
 
+            ViewBag.korisnikID = id;
             return View(listaArtikala);
         }
 
