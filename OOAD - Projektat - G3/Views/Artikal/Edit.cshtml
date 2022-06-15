@@ -52,6 +52,7 @@ body {
 <label style="border: black solid 0.2vw; padding:0.2vw 0.5vw 0.2vw 0.5vw; color: black; border-radius: 1.953vw;" id="brojPregledaID" name="brojPregleda">
     Broj pregleda artikla je: 0
 </label>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
@@ -87,5 +88,3 @@ body {
     <body>
 <button class="button button2" onclick="location.href='@Url.Action("OpeningPage","Start")'">Vrati se na svoje artikle</button>
 </body>
-
-<img src="~/Images/1200px-SNice.svg.png" style="position:absolute; right:3vw; top:6.5vw; border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">
