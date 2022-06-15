@@ -30,6 +30,11 @@ namespace OOAD___Projektat___G3.Controllers
                 return View(korisnik);
             }
 
+            if(kor == -1)
+            {
+                return RedirectToAction("Start","Start");
+            }
+
             RegistrovaniKorisnik koris = _context.RegistrovaniKorisnik.Find(kor);
             return View(koris);
         }
