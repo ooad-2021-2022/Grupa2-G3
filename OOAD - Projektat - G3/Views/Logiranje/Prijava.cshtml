@@ -1,28 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Prijava";
-}
-@{
-    Layout = null;
-}
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - E-PIJACA</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/ourCSS.css" />
-</head>
+﻿<html>
 
-<body>    
-    <div class="container">
-        <main role="main" class="pb-3">
-           <img id="logo" src="https://i.ibb.co/Hh5QK9W/logo.png?fbclid=IwAR0Veh8jAZcaZeuMyyze2wzsvlSGeVcGUHyoTZ0Lgyx7ehRhPt2pU34jPYo"</img>
-           <h1 id="naslov">Izaberite tip računa</h1>
-          <button id="b1" onclick="location.href='@Url.Action("PrijavaKorisnika","Logiranje")'">Račun za vlastite upotrebe</button>
-            <button id="b2" onclick="location.href='@Url.Action("PrijavaKompanije","Logiranje")'">Račun za kompanije</button>
-            <img id="kompanija" src="https://i.ibb.co/3YkyxGh/home-registered-office.png?fbclid=IwAR2T1HI_BMWEGEvlGBtbrF91xNtySbR-1i9PvCt4UfgDdvhqastX3rVsXVw"</img>
-            <img id="korisnik" src="https://i.ibb.co/f4TWVb3/1024px-User-avatar-svg.png?fbclid=IwAR11HEG7JGI3J6cpZ1za7PnMBddp0GlmNo_LvrKxRyhdehbwWQygw5ErKEg"</img>
-        </main>
-    </div>
+    <body>
+<style>
+body {
+  background-image: url('https://i.ibb.co/TkcSN7t/SL-090119-22970-03.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:100% 100%;
+}
+</style>
+
+<p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
+    alt="Smiley face" width="150" style="vertical-align:top;margin:1.563vw -3.125vw" />
+<h1 style="text-align:center; font-family:'Times New Roman', Times, serif;
+font-size:3vw; margin-top:3vw">
+    Izaberite tip računa
+</h1>
+    <img src="https://i.ibb.co/f4TWVb3/1024px-User-avatar-svg.png" 
+    alt="Smiley face"  style="margin-top:3vw; width:15%; margin-left:20%; display: inline-block;" data-inline="true">
+    <img src="https://i.ibb.co/3YkyxGh/home-registered-office.png" 
+    alt="Smiley face"  style="margin-top:3vw;width:15%; margin-left:7%; display: inline-block;"  data-inline="true">
+    <img src="https://i.ibb.co/xYCqhn4/img-239979.png" 
+    alt="Smiley face"  style="margin-top:3vw; width:15%; margin-left:7%; display: inline-block;"  data-inline="true">
+
+   <button id="b1"  style="margin-top:3vw; background-color:transparent; font-weight:bold; padding: 0.547vw 0.781vw 0.547vw 0.781vw; width:15%;font-size:1.5vw; margin-left:20%; border: black solid 0.2vw;  border-radius: 1.953vw;  display: inline-block;" onclick="location.href='@Url.Action("PrijavaKorisnika","Logiranje")'">Račun za vlastite upotrebe</button>
+   <button id="b2"  style="margin-top:3vw; background-color:transparent; font-weight:bold; padding: 0.547vw 0.781vw 0.547vw 0.781vw;width:15%; font-size:1.5vw;margin-left:7%; border: black solid 0.2vw;   border-radius: 1.953vw;display: inline-block;" onclick="location.href='@Url.Action("PrijavaKompanije","Logiranje")'">Račun za kompanije</button>
+   <button id="b3"  style="margin-top:3vw; background-color:transparent; font-weight:bold; padding: 0.547vw 0.781vw 0.547vw 0.781vw; width:15%;font-size:1.5vw; margin-left:7%;border: black solid 0.2vw;   border-radius: 1.953vw; display: inline-block;" onclick="location.href='@Url.Action("PrijavaAdministrator","Administrator")'">Račun za administratora</button>
+   
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

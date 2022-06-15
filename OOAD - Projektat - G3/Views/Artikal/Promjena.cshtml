@@ -7,8 +7,8 @@
 body {
   background-image: url('https://i.ibb.co/89SYSkV/Background-Rot.png');
   background-repeat: no-repeat;
-  background-attachment: fixesd;
-  background-size: contain;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 </style>
 <p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
@@ -20,7 +20,7 @@ Podaci artikla
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Promjena">
+        <form asp-action="Promjena" asp-controller="Artikal">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
              <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
                 <label asp-for="naziv" class="control-label">Naziv artikla</label>
@@ -50,6 +50,10 @@ Podaci artikla
         </form>
     </div>
 </div>
+
+<button value="btnCamera" class="btn btn-primary" style="margin-top:1vw" onclick="location.href='@Url.Action("ImageAdd","Artikal", new{idArtikla = Model.id})'"
+> Otvori kameru
+</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

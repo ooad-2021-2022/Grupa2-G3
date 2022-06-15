@@ -54,11 +54,16 @@ namespace OOAD___Projektat___G3.Controllers
             return View();
         }
 
-        public IActionResult ImageAdd()
+        public IActionResult ImageAdd(int idArtikla)
         {
+            ViewBag.idArtik = idArtikla;
             return View();
         }
 
+        public IActionResult SaveTakenImage(int idSlika, string slika)
+        {
+            return null;
+        }
         // POST: Artikal/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -122,16 +127,18 @@ namespace OOAD___Projektat___G3.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Promjena(int id, [Bind("naziv,cijena,kolicina,opis,slika,brojac")] Artikal artikal)
         {
-            if (id != artikal.vlasnikKorisnik)
-            {
-                return NotFound();
-            }
+            artikal.id = id;
+            
+            Artikal art = _context.Artikal.Find(id);
+            artikal.brojac = art.brojac;
+            artikal.vlasnikKorisnik = art.vlasnikKorisnik;
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(artikal);
+                    _context.Artikal.Remove(art);
+                    _context.Artikal.Update(artikal);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -145,10 +152,9 @@ namespace OOAD___Projektat___G3.Controllers
                         throw;
                     }
                 }
-                return View("MojiArtikli", artikal);
+                return RedirectToAction(nameof(MojiArtikli), new { korisnikID = artikal.vlasnikKorisnik});
             }
-            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
-            return View(artikal);
+            return RedirectToAction(nameof(MojiArtikli), new { korisnikID = artikal.vlasnikKorisnik });
         }
        
         // GET: Artikal/Delete/5

@@ -38,6 +38,11 @@ body {
                 <input asp-for="opis" class="form-control"/>
                 <span asp-validation-for="opis" class="text-danger"></span>
             </div>
+            <div class="form-group"  style="margin-top:0.242vw; color:black; font-size:1.172vw">
+                <label asp-for="slika" class="control-label"> Url slike:</label>
+                <input asp-for="slika" class="form-control"/>
+                <span asp-validation-for="slika" class="text-danger"></span>
+            </div>
                 <div class="form-group" style="margin-top:0.5vw">
                 <input type="submit" value="Dodaj artikal" class="btn btn-primary" />
             </div>
@@ -45,19 +50,7 @@ body {
     </div>
 </div>
 
-<form action="ImageUpload" style="margin-top:5vw">
-    <div >
-          <input type="file" id="imageUpload" name="imageUpload" accept="image/*"> 
-    </div>
 
-   <div class="form-group" style="margin-top:0.5vw">
-  <input type="submit" value="Dodaj ili promjeni sliku" onclick="ImageUploadFileChooser" class="btn btn-primary" />
-  </div>
-</form>
-
-<button value="Fotografiši sliku" class="btn btn-primary" style="margin-top:1vw""
->
-</button>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -95,4 +88,4 @@ body {
 <button class="button button2" onclick="location.href='@Url.Action("BackToMain","Artikal", new{vlasnikKorisnik = @ViewBag.korisnikID})'">Vrati se na glavnu stranicu</button>
 </body>
 
-<img src="~/Images/1200px-SNice.svg.png" style="position:absolute; right:3vw; top:6.5vw; border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">
+<img src="https://i.ibb.co/12hw6LD/1200px-SNice-svg.png" style="position:absolute; right:3vw; top:6.5vw; border:black solid 0.5vw ; width:30%; height:40%; background-color:white;">
