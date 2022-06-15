@@ -99,7 +99,7 @@ namespace OOAD___Projektat___G3.Controllers
         }
 
         // GET: Artikal/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Promjena(int? id)
         {
             if (id == null)
             {
@@ -120,7 +120,7 @@ namespace OOAD___Projektat___G3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,naziv,cijena,kolicina,opis,slika,brojac,vlasnikKorisnik")] Artikal artikal)
+        public async Task<IActionResult> Promjena(int id, [Bind("naziv,cijena,kolicina,opis,vlasnikKorisnik,slika,user,brojac,id")] Artikal artikal)
         {
             if (id != artikal.id)
             {
@@ -145,7 +145,7 @@ namespace OOAD___Projektat___G3.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return View("MojiArtikli", artikal);
             }
             ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
             return View(artikal);
