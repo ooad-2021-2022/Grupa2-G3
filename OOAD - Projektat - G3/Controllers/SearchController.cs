@@ -19,8 +19,21 @@ namespace OOAD___Projektat___G3.Controllers
         {
             _context = context;
         }
+        public async Task<IActionResult> Prikaz(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        
+            var artikal = await _context.Artikal.FindAsync(id);
+            if (artikal == null)
+            {
+                return NotFound();
+            }
+            ViewData["vlasnikKorisnik"] = new SelectList(_context.User, "id", "id", artikal.vlasnikKorisnik);
+            return View(artikal);
+        }
         // GET: Search
         public async Task<IActionResult> Index()
         {
@@ -67,9 +80,11 @@ namespace OOAD___Projektat___G3.Controllers
             ViewBag.lista = lista; 
             return View(lista);
         }
+        
 
         public IActionResult Pretraga(string? rijec = "", double donjaGR = 0, double gornjaGR = 0, ArtikalKategorija? kategorija = null)
         {
+
             List<Artikal> listaArtikala;
             if (rijec != null && !rijec.Contains("Unesite tekst..."))
             {

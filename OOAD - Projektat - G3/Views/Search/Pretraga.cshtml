@@ -16,9 +16,14 @@ body {
 <p><img src="https://i.ibb.co/Hh5QK9W/logo.png" 
     alt="Smiley face" width="150" style="vertical-align:top;margin:0.8vw -3.125vw" />
 
+    <button onclick="location.href='@Url.Action("Start","Start")'"  style="position:absolute; top:4vw; right:63.5vw; font-size:2vw; color:black; width:20vw;  
+border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Početna stranica</button>
+<button onclick="location.href='@Url.Action("MainUser","RegistrovaniKorisnik")'"  style="position:absolute; top:4vw; right:42.5vw; font-size:2vw; color:black; width:20vw;  
+border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">Moj Račun</button>
+
 <form action="Pretraga" data-inline="true">
   
-    <input type="text" id="rijec" name="rijec" value="Unesite tekst..." data-inline="true" 
+    <input onclick="this.select()" type="text" id="rijec" name="rijec" value="Unesite tekst..." data-inline="true" 
     style="position:absolute; top:2vw; right:16.5vw; font-size:2vw; color:black; width:20vw;  
 border-radius: 1.953vw; background-color: #ffffff00; border: black solid 0.2vw; font-weight: bold;">
     
@@ -87,7 +92,7 @@ border: 0.2vw solid black;
                 @Html.DisplayFor(modelItem => item.kolicina)
             </td>
             <td>
-                <a asp-action="prikaziStranicu" asp-route-id="@item.id">Prikaži stranicu</a>
+                <a asp-action="Prikaz" asp-route-id="@item.id">Prikaži stranicu</a>
             </td>
         </tr>
 }

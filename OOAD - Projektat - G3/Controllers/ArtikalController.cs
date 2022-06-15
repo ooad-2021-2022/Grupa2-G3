@@ -156,7 +156,7 @@ namespace OOAD___Projektat___G3.Controllers
             }
             return RedirectToAction(nameof(MojiArtikli), new { korisnikID = artikal.vlasnikKorisnik });
         }
-
+       
         // GET: Artikal/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
