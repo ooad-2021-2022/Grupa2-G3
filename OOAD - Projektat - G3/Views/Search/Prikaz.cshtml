@@ -44,7 +44,11 @@ Podaci artikla
             </div>
 
             <div class="form-group" style="margin-top:2vw">
-                <input type="submit" value="KUPI" class="btn btn-primary" >
+                    @if(ViewBag.idKorisnika != -1)
+                    {
+                        <input type="submit" value="KUPI" class="btn btn-primary" >
+                    }
+                    
             </div>
         </form>
     </div>
